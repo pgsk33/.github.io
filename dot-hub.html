@@ -4,14 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Dot Hub | Light up your Nothing Phone</title>
+    <title>Dot Hub for Glyph Matrix | Official website</title>
     <meta name="description" content="Dot Hub is the essential app for Nothing Phone (3) and (4a) Pro owners. Unlock the power of your Glyph Matrix with interactive tools, visualizers, and customizable LED displays.">
     <meta name="keywords" content="Nothing Phone, Glyph Matrix, Dot Hub, Nothing OS, LED interface, Ultimate AOD, Nothing Phone app">
     <meta name="author" content="Paul Gesekus">
-    <link rel="canonical" href="https://nostream.de/dot-hub.html"> <meta property="og:title" content="Dot Hub | Light up your Nothing Phone">
+    <link rel="canonical" href="https://nostream.de/dot-hub.html">
+    <meta property="og:title" content="Dot Hub for Glyph Matrix | Official website">
     <meta property="og:description" content="Turn your Nothing Phone's rear LED interface into a suite of interactive tools, visualizers, and customizable displays with Dot Hub.">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://nostream.de/dot-hub.html"> <script type="application/ld+json">
+    <meta property="og:url" content="https://nostream.de/dot-hub.html"> 
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Dot Hub for Glyph Matrix | Official website">
+    <meta name="twitter:description" content="urn your Nothing Phone's rear LED interface into a suite of interactive tools, visualizers, and customizable displays with Dot Hub.">
+    <meta name="twitter:image" content="https://nostream.tech/images/dothubcover3d.png">
+    <script type="application/ld+json">
     {
         "@context": "https://schema.org",
         "@type": "SoftwareApplication",
@@ -32,6 +38,15 @@
 </script>
 
     <link rel="stylesheet" href="stylesheet.css">
+    <style>
+        .banner-mobile { display: none; }
+        .banner-pc { display: block; }
+
+        @media (max-width: 768px) {
+            .banner-mobile { display: block; }
+            .banner-pc { display: none; }
+        }
+    </style>
 </head>
 <body>
 <div class="container">
@@ -45,8 +60,19 @@
         </nav>
     </header>
 
+    <div class="banner-mobile">
+        <br>
+        <img src="images/banner%20mobile.png" alt="Dot Hub Mobile Banner" style="width: 100%; height: auto; display: block;">
+        <br>
+    </div>
+
+    <div class="banner-pc">
+        <br>
+        <img src="images/banner_pc.png" alt="Dot Hub Desktop Banner" style="width: 100%; height: auto; display: block;">
+        <br>
+    </div>
+
     <main>
-        <h1>Dot Hub<span class="accent">.</span></h1>
         <h2>Unlock the power of your Glyph Matrix.</h2>
 
         <p>Dot Hub is the essential app for Nothing Phone owners who want to do more with their lights. We turn your Phone (3) or Phone (4a) Pro rear LED interface into a suite of interactive tools, visualization, and customizable displays.</p>
@@ -80,10 +106,12 @@
             <div class="ultimate-aod-hero">
                 <div class="toy-section">
                     <div class="toy-image"><img src="images/UAOD_th.png" alt="Ultimate AOD Preview"></div>
-                    <h1>Ultimate AOD</h1>
-                    <div class="compatibility">
-                        <span class="compatible yes">Phone (3)</span>
-                        <span class="compatible yes">Phone (4a) Pro</span>
+                    <div class="toy-content">
+                        <h3>Ultimate AOD</h3>
+                        <div class="compatibility">
+                            <span class="compatible yes">Phone (3)</span>
+                            <span class="compatible yes">Phone (4a) Pro</span>
+                        </div>
                     </div>
                 </div>
 
@@ -215,26 +243,11 @@
         </section>
     </main>
 
-    <footer>
-        <div class="imprint">
-            <strong>Impressum / Legal Notice</strong>
-            <p>
-                Paul Gesekus<br>
-                (handelnd unter / trading as: nostream digital solutions)<br>
-                August-Wolff-Straße 17<br>
-                65203 Wiesbaden<br>
-                Deutschland / Germany
-            </p>
-            <p style="margin-top: 1rem;">
-                E-Mail: <a href="mailto:contact@nostream.de">contact@nostream.de</a>
-            </p>
-        </div>
-
-        <div class="footer-copyright">
-            <p>© 2026 Paul Gesekus.</p>
-            <a href="privacy_policy.html" class="accent" style="margin: 20px;">Privacy Policy</a>
-        </div>
-    </footer>
+    <div class="footer-copyright">
+        <p>© 2026 Paul Gesekus.</p>
+        <a href="privacy_policy.html" class="accent" style="margin: 20px;">Privacy Policy</a>
+        <a href="impressum.html" class="accent" style="margin: 20px;">Imprint</a>
+    </div>
 </div>
 </body>
 </html>

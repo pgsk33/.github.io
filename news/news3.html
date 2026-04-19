@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>N Clock: Coming Soon | nostream dev</title>
+    <link rel="stylesheet" href="../stylesheet.css">
+    <link rel="stylesheet" href="../mobile_view.css">
+</head>
+<body>
+<div class="container">
+    <header>
+        <div class="logo">nostream dev<span>.</span></div>
+        <nav>
+            <a href="../index.html">Home</a>
+            <a href="../dot-hub.html">Dot Hub</a>
+            <a href="../nclock.html">NClock</a>
+            <a href="../blog.html" class="accent">Blog</a>
+        </nav>
+    </header>
+
+
+
+    <main>
+      <div id="app-news-card" class="app-news-card" style="display: none;">
+        <img src="../images/nc_logo_trans.png" alt="Dot Hub Preview" class="app-preview-image">
+        <div class="app-card-content">
+          <h2>N Clock: coming soon</h2>
+        </div>
+      </div>
+
+        <span class="accent">2026-04-17</span>
+        <h1>N Clock: Coming Soon<span class="accent">_</span></h1>
+
+        <section id="content">
+            <div class="card">
+                <h2 style="margin-top: 0;">Time, reimagined.</h2>
+                <p>N Clock is a simple clock app. Inspired by the Nothing design language, it provides a clean and highly functional experience in one straightforward dark theme interface.</p>
+                
+                <h4 style="color: var(--accent-color); font-size: 0.9rem; text-transform: uppercase; margin-bottom: 1rem;">Features</h4>
+                <ul style="margin-left: 1.2rem; margin-bottom: 2rem;">
+                    <li><strong>Minimalist Design:</strong> Experience time without distractions. NClock follows the iconic dot-matrix aesthetic.</li>
+                    <li><strong>Nothing OS Integration:</strong> Designed to fit perfectly into your Nothing ecosystem.</li>
+                </ul>
+
+                <h4 style="color: var(--accent-color); font-size: 0.9rem; text-transform: uppercase; margin-bottom: 1rem;">Status</h4>
+                <p>The app is currently in the final stages of development and will be available on the Google Play Store soon. Stay tuned for more updates!</p>
+            </div>
+        </section>
+
+        <div style="margin-top: 2rem;">
+            <a href="../blog.html" class="btn">Back to Blog</a>
+        </div>
+    </main>
+
+    <div class="footer-copyright">
+        <p>© 2026 Paul Gesekus.</p>
+        <a href="../privacy_policy.html" class="accent" style="margin: 20px;">Privacy Policy</a>
+        <a href="../impressum.html" class="accent" style="margin: 20px;">Imprint</a>
+    </div>
+</div>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        // Check URL for ?platform=app
+        const urlParams = new URLSearchParams(window.location.search);
+
+        if (urlParams.get('platform') === 'app') {
+            // 1. Standard-Web-Elemente ausblenden
+            document.querySelector('header').style.display = 'none';
+            document.querySelector('h1').style.display = 'none';
+            document.querySelector('main > span.accent').style.display = 'none'; // The date
+            document.getElementById('content').style.display = 'none';
+            document.querySelector('.footer-copyright').style.display = 'none';
+            document.querySelector('.btn').parentNode.style.display = 'none'; // Back button
+
+            // 2. Übergeordnete Container (Body, umschließendes Div, Main) auf Vollbild zwingen
+            document.body.style.margin = '0';
+            document.body.style.padding = '0';
+            document.body.style.height = '100vh';
+            document.body.style.overflow = 'hidden'; // Verhindert ungewolltes Scrollen
+
+            const wrapperDiv = document.querySelector('body > div');
+            if (wrapperDiv) {
+                wrapperDiv.style.margin = '0';
+                wrapperDiv.style.padding = '0';
+                wrapperDiv.style.height = '100vh';
+                wrapperDiv.style.maxWidth = '100%';
+            }
+
+            const mainElement = document.querySelector('main');
+            mainElement.style.margin = '0';
+            mainElement.style.padding = '0';
+            mainElement.style.height = '100vh';
+            mainElement.style.display = 'block';
+
+            // 3. App-News-Card anzeigen und Größe garantieren
+            const appNewsCard = document.getElementById('app-news-card');
+            appNewsCard.style.display = 'flex';
+            appNewsCard.style.width = '100vw';
+            appNewsCard.style.height = '100vh';
+            appNewsCard.style.borderRadius = '0'; // Zur Sicherheit, falls woanders überschrieben
+        }
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>25,000 Downloads: A Journey | nostream dev</title>
+    <link rel="stylesheet" href="../stylesheet.css">
+    <link rel="stylesheet" href="../mobile_view.css">
+</head>
+<body>
+<div class="container">
+    <header>
+        <div class="logo">nostream dev<span>.</span></div>
+        <nav>
+            <a href="../index.html">Home</a>
+            <a href="../dot-hub.html">Dot Hub</a>
+            <a href="../nclock.html">NClock</a>
+            <a href="../blog.html" class="accent">Blog</a>
+        </nav>
+    </header>
+
+
+
+    <main>
+      <div id="app-news-card" class="app-news-card" style="display: none;">
+        <img src="images/25k.webp" alt="Dot Hub Preview" class="app-preview-image">
+        <div class="app-card-content">
+          <h2>Thank you for 25k downloads!</h2>
+        </div>
+      </div>
+
+        <span class="accent">2026-04-17</span>
+        <h1>Thank you for 25k downloads!<span class="accent">_</span></h1>
+
+        <section id="content">
+            <div class="card">
+                <p>Hey everyone, I’m the developer of Dot Hub. Dot Hub for Glyph Matrix has just hit 25,000 downloads, which is a number I never imagined reaching. When I saw that the Nothing Phone (3) came with a Glyph Matrix and that there was an SDK available, I knew I wanted to build something for it. I started by sketching out a few Glyph Toy ideas and quickly put together a basic UI.</p>
+
+                <p>When I finally managed to buy my Phone 3 at a community event, I actually started coding on the train ride home. At first, I had to figure a lot of things out. I started programming only two years ago, and my knowledge at that time was mostly basic Java. After a lot of reading, searching, and experimenting, I managed to finish my first three Glyph Toys. Then I wanted to release my app on the Play Store. Turns out, that’s not as easy as I thought. I had to deal with privacy policies, legal requirements like an imprint, and missing parts such as a settings page.</p>
+
+                <p>I thought I was ready for release, but then I learned that every Play Store app needs a two-week beta phase with at least twelve testers. I had no idea where to find twelve people for that. So I asked for help, and within an hour I already had enough testers. Over the next few days more than fifty people joined. I want to thank everyone who took part in the beta. Without you, none of this would have worked. During the beta I added new Glyph Toys like the music visualizer and also the main feature that inspired the app’s name and logo: a section showing Glyph Toys from other apps.</p>
+
+                <p>When Dot Hub launched, I was afraid nobody would notice. But the launch went great. Within two weeks, the app had been downloaded over a thousand times. I even received some donations through Buy Me a Coffee and got featured by Nothing India with some really well-made videos. It was a crazy experience. After that, I quickly started on version 2.0, which came out a month later. Around that time, I was honestly pretty burned out. I had been coding every minute I could, and that wasn’t sustainable. I forced myself to take a break because I was afraid of losing motivation completely. That break was definitely needed.</p>
+
+                <p>Once I got my energy back, I started working on version 3.0. Unfortunately, I had to drop several planned features for different reasons. In the end, I built the Ultimate AOD, which combines five features in one Glyph Toy. I also realized that for this project to keep growing, it needs to generate some revenue. That’s why I decided to switch to a subscription model even though I personally don’t love it. Ongoing development just requires ongoing support. I hope you can understand that.</p>
+
+                <p>Thank you to everyone who has helped me so far. I’m excited to keep working on Dot Hub and I’ll share more about the next update next week.</p>
+            </div>
+        </section>
+
+        <div style="margin-top: 2rem;">
+            <a href="../blog.html" class="btn">Back to Blog</a>
+        </div>
+    </main>
+
+    <div class="footer-copyright">
+        <p>© 2026 Paul Gesekus.</p>
+        <a href="../privacy_policy.html" class="accent" style="margin: 20px;">Privacy Policy</a>
+        <a href="../impressum.html" class="accent" style="margin: 20px;">Imprint</a>
+    </div>
+</div>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        // Check URL for ?platform=app
+        const urlParams = new URLSearchParams(window.location.search);
+
+        if (urlParams.get('platform') === 'app') {
+            // 1. Standard-Web-Elemente ausblenden
+            document.querySelector('header').style.display = 'none';
+            document.querySelector('h1').style.display = 'none';
+            document.querySelector('main > span.accent').style.display = 'none'; // The date
+            document.getElementById('content').style.display = 'none';
+            document.querySelector('.footer-copyright').style.display = 'none';
+            document.querySelector('.btn').parentNode.style.display = 'none'; // Back button
+
+            // 2. Übergeordnete Container (Body, umschließendes Div, Main) auf Vollbild zwingen
+            document.body.style.margin = '0';
+            document.body.style.padding = '0';
+            document.body.style.height = '100vh';
+            document.body.style.overflow = 'hidden'; // Verhindert ungewolltes Scrollen
+
+            const wrapperDiv = document.querySelector('body > div');
+            if (wrapperDiv) {
+                wrapperDiv.style.margin = '0';
+                wrapperDiv.style.padding = '0';
+                wrapperDiv.style.height = '100vh';
+                wrapperDiv.style.maxWidth = '100%';
+            }
+
+            const mainElement = document.querySelector('main');
+            mainElement.style.margin = '0';
+            mainElement.style.padding = '0';
+            mainElement.style.height = '100vh';
+            mainElement.style.display = 'block';
+
+            // 3. App-News-Card anzeigen und Größe garantieren
+            const appNewsCard = document.getElementById('app-news-card');
+            appNewsCard.style.display = 'flex';
+            appNewsCard.style.width = '100vw';
+            appNewsCard.style.height = '100vh';
+            appNewsCard.style.borderRadius = '0'; // Zur Sicherheit, falls woanders überschrieben
+        }
+    });
+</script>
+</body>
+</html>

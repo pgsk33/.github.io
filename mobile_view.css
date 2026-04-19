@@ -1,0 +1,48 @@
+/* Styling for the mobile app news card */
+.app-news-card {
+    display: flex;
+    align-items: center;
+    background-color: #1e1e1e; /* Base background for the right side */
+    border-radius: 0;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+}
+
+.app-preview-image {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 45%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 5px;
+    z-index: 1; /* Sits behind the text container */
+}
+.app-card-content {
+    position: relative;
+    z-index: 2;
+    margin-left: 38%;
+    padding: 15px;
+    background-color: rgba(0, 0, 0, 0.9);
+    height: 100%;
+    width: 62%;
+    background-blend-mode: lighten;
+    border-radius: 20px;
+
+    display: flex;
+    flex-direction: column; /* Stapelt h2 und h3 vertikal */
+    justify-content: center; /* Zentriert den Text vertikal in der Card */
+    align-items: flex-start; /* Richtet den Text linksbündig aus */
+    box-sizing: border-box;
+    box-shadow: -6px 0 12px rgba(0, 0, 0, 0.5);
+}
+
+.app-card-content h2 {
+    font-size: 1.1rem;
+    margin: 0;
+    color: #ffffff;
+    line-height: 1.3;
+}
