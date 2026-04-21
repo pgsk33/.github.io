@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>N Clock Closed Beta 3 | nostream dev</title>
+    <link rel="stylesheet" href="../stylesheet.css">
+    <link rel="stylesheet" href="../mobile_view.css">
+</head>
+<body>
+<div class="container">
+    <header>
+        <div class="logo">nostream dev<span>.</span></div>
+        <nav>
+            <a href="../index.html">Home</a>
+            <a href="../dot-hub.html">Dot Hub</a>
+            <a href="../nclock.html">NClock</a>
+            <a href="../blog.html" class="accent">Blog</a>
+        </nav>
+    </header>
+
+    <main>
+        <div id="app-news-card" class="app-news-card" style="display: none;">
+            <img src="../images/nc_logo_trans.png" alt="Dot Hub Preview" class="app-preview-image">
+            <div class="app-card-content">
+                <h2>N Clock: coming soon</h2>
+            </div>
+        </div>
+
+        <span class="accent">2026-04-20</span>
+        <h1>N Clock Closed Beta 3<span class="accent">_</span></h1>
+
+        <section id="content">
+            <div class="card">
+                <p>The third major update for the N Clock closed beta is now rolling out to testers. This update focuses heavily on core reliability, ensuring your alarms trigger even under difficult conditions like device reboots.</p>
+
+                <h3 style="margin-top: 2rem; color: var(--accent-color); font-size: 1.1rem;">Patch Notes</h3>
+                <ul style="margin-left: 1.2rem; margin-top: 1rem;">
+                    <li><strong>Direct Boot Support:</strong> Enabled <code>directBootAware</code> for all core components. Alarms will now function after a reboot even before you unlock your phone.</li>
+                    <li><strong>Storage Migration:</strong> Refactored <code>AlarmDatabase</code> to use Device Protected Storage, migrating existing data from Credential Encrypted storage safely.</li>
+                    <li><strong>Database Improvements:</strong> Added formal migrations (v1-v4) and enabled schema exporting for better stability.</li>
+                    <li><strong>Next Occurrence Logic:</strong> Enhanced <code>AlarmEntity</code> to more accurately calculate trigger times for both repeating and one-time alarms.</li>
+                    <li><strong>Auto-scheduling:</strong> Updated <code>AlarmReceiver</code> to handle post-trigger logic (re-scheduling or deactivating) automatically.</li>
+                    <li><strong>Timer Notifications:</strong> Refactored <code>TimerService</code> to allow swiping away notifications, adding "Stop", "Reset", and "Dismiss" actions.</li>
+                    <li><strong>Battery Optimization:</strong> Reduced <code>AlarmService</code> timeout and WakeLock duration from 2 hours to 10 minutes.</li>
+                    <li><strong>Conflict Resolution:</strong> Fixed <code>PendingIntent</code> conflicts by using unique alarm IDs as request codes.</li>
+                </ul>
+            </div>
+        </section>
+
+        <div style="margin-top: 2rem;">
+            <a href="../blog.html" class="btn">Back to Blog</a>
+        </div>
+    </main>
+
+    <div class="footer-copyright">
+        <p>© 2026 Paul Gesekus.</p>
+        <a href="../privacy_policy.html" class="accent" style="margin: 20px;">Privacy Policy</a>
+        <a href="../impressum.html" class="accent" style="margin: 20px;">Imprint</a>
+    </div>
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const urlParams = new URLSearchParams(window.location.search);
+
+        if (urlParams.get('platform') === 'app') {
+            // 1. Hide standard web elements
+            document.querySelector('header').style.display = 'none';
+            document.querySelector('h1').style.display = 'none';
+            document.querySelector('main > span.accent').style.display = 'none';
+            document.getElementById('content').style.display = 'none';
+            document.querySelector('.footer-copyright').style.display = 'none';
+            const backBtn = document.querySelector('.btn');
+            if (backBtn) backBtn.parentNode.style.display = 'none';
+
+            // 2. Force fullscreen containers
+            document.body.style.margin = '0';
+            document.body.style.padding = '0';
+            document.body.style.height = '100vh';
+            document.body.style.overflow = 'hidden';
+
+            const wrapperDiv = document.querySelector('body > div');
+            if (wrapperDiv) {
+                wrapperDiv.style.margin = '0';
+                wrapperDiv.style.padding = '0';
+                wrapperDiv.style.height = '100vh';
+                wrapperDiv.style.maxWidth = '100%';
+            }
+
+            const mainElement = document.querySelector('main');
+            mainElement.style.margin = '0';
+            mainElement.style.padding = '0';
+            mainElement.style.height = '100vh';
+            mainElement.style.display = 'block';
+
+            // 3. Show App News Card
+            const appNewsCard = document.getElementById('app-news-card');
+            appNewsCard.style.display = 'flex';
+            appNewsCard.style.width = '100vw';
+            appNewsCard.style.height = '100vh';
+            appNewsCard.style.alignItems = 'center';
+            appNewsCard.style.justifyContent = 'center';
+            appNewsCard.style.textAlign = 'center';
+        }
+    });
+</script>
+</body>
+</html>
