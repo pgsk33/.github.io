@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>N Clock Closed Beta 3 | nostream dev</title>
+    <title>N Clock Closed Beta 4 | nostream dev</title>
     <link rel="stylesheet" href="../stylesheet.css">
     <link rel="stylesheet" href="../mobile_view.css">
 </head>
@@ -21,30 +21,36 @@
 
     <main>
         <div id="app-news-card" class="app-news-card" style="display: none;">
-            <img src="../images/nc_logo_trans.png" alt="Dot Hub Preview" class="app-preview-image">
+            <img src="../images/nc_logo_trans.png" alt="N Clock Preview" class="app-preview-image">
             <div class="app-card-content">
-                <h2>N Clock: coming soon</h2>
+                <h2>CB 0.5: What's New</h2>
             </div>
         </div>
 
-        <span class="accent">2026-04-20</span>
-        <h1>N Clock Closed Beta 3<span class="accent">_</span></h1>
+        <span class="accent">2026-04-27</span>
+        <h1>N Clock Closed Beta 5<span class="accent">_</span></h1>
+
 
         <section id="content">
             <div class="card">
-                <p>The third major update for the N Clock closed beta is now rolling out to testers. This update focuses heavily on core reliability, ensuring your alarms trigger even under difficult conditions like device reboots.</p>
+                <p>Closed Beta 5 is here. This update gives the clock screen a fresh new look and brings a much nicer way to pick your alarm sounds.</p>
 
-                <h3 style="margin-top: 2rem; color: var(--accent-color); font-size: 1.1rem;">Patch Notes</h3>
+                <h3 style="margin-top: 2rem; color: var(--accent-color); font-size: 1.1rem;">A Cleaner Clock Screen</h3>
                 <ul style="margin-left: 1.2rem; margin-top: 1rem;">
-                    <li><strong>Direct Boot Support:</strong> Enabled <code>directBootAware</code> for all core components. Alarms will now function after a reboot even before you unlock your phone.</li>
-                    <li><strong>Storage Migration:</strong> Refactored <code>AlarmDatabase</code> to use Device Protected Storage, migrating existing data from Credential Encrypted storage safely.</li>
-                    <li><strong>Database Improvements:</strong> Added formal migrations (v1-v4) and enabled schema exporting for better stability.</li>
-                    <li><strong>Next Occurrence Logic:</strong> Enhanced <code>AlarmEntity</code> to more accurately calculate trigger times for both repeating and one-time alarms.</li>
-                    <li><strong>Auto-scheduling:</strong> Updated <code>AlarmReceiver</code> to handle post-trigger logic (re-scheduling or deactivating) automatically.</li>
-                    <li><strong>Timer Notifications:</strong> Refactored <code>TimerService</code> to allow swiping away notifications, adding "Stop", "Reset", and "Dismiss" actions.</li>
-                    <li><strong>Battery Optimization:</strong> Reduced <code>AlarmService</code> timeout and WakeLock duration from 2 hours to 10 minutes.</li>
-                    <li><strong>Conflict Resolution:</strong> Fixed <code>PendingIntent</code> conflicts by using unique alarm IDs as request codes.</li>
+                    <li><strong>Perfectly Centered Clock:</strong> The digital clock now sits right in the middle of your screen, where it belongs.</li>
+                    <li><strong>News at a Glance:</strong> The news section at the bottom is now clearly labelled and tidied up, so you always know what you're looking at.</li>
+                    <li><strong>Smoother News Cards:</strong> Fixed an issue where news cards could sometimes show up as a black box. They now load reliably every time.</li>
                 </ul>
+
+                <h3 style="margin-top: 2rem; color: var(--accent-color); font-size: 1.1rem;">A Brand New Way to Pick Alarm Sounds</h3>
+                <ul style="margin-left: 1.2rem; margin-top: 1rem;">
+                    <li><strong>Sounds Organised by Artist and Album:</strong> Choosing an alarm sound is no longer a long dropdown list. Sounds are now neatly sorted into albums, just like your favourite music app.</li>
+                    <li><strong>Listen Before You Choose:</strong> Tap any sound to preview it before setting it as your alarm. No more surprises in the morning.</li>
+                    <li><strong>Friendly Sound Names:</strong> Your alarm list now shows the actual name of each sound, instead of a confusing file name.</li>
+                    <li><strong>Four New Sounds:</strong> Added two new alert tones and two new melodic tones, each with their own album cover.</li>
+                </ul>
+
+                <p style="margin-top: 2rem;">This update brings N Clock to <strong>Closed Beta 5 (CB 0.5)</strong>. As always, thanks for testing and sharing your feedback.</p>
             </div>
         </section>
 

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>25,000 Downloads: A Journey | nostream dev</title>
+    <title>Follow nostream on Instagram | nostream dev</title>
     <link rel="stylesheet" href="../stylesheet.css">
     <link rel="stylesheet" href="../mobile_view.css">
 </head>
@@ -23,28 +23,46 @@
 
     <main>
       <div id="app-news-card" class="app-news-card" style="display: none;">
-        <img src="images/25k.webp" alt="Dot Hub Preview" class="app-preview-image">
+        <img src="images/ig_profile.png" alt="Click to follow @nostream_tech on Instagram" class="app-preview-image" style="object-fit: contain; background-color: #ffffff;">
         <div class="app-card-content">
-          <h2>Thank you for 25k downloads!</h2>
+          <h2>Follow on Instagram</h2>
+          <h3 style="font-size: 0.85rem; font-weight: 400; color: #cccccc; margin: 0.5rem 0 0 0; line-height: 1.4;">Scan to follow @nostream_tech and never miss an update.</h3>
         </div>
       </div>
 
-        <span class="accent">2026-04-17</span>
-        <h1>Thank you for 25k downloads!<span class="accent">_</span></h1>
+        <span class="accent">2026-05-21</span>
+        <h1>Follow on Instagram<span class="accent">_</span></h1>
+
+        <div id="follow-section" style="text-align: center; margin: 2rem 0;">
+            <a href="https://www.instagram.com/nostream_tech/" class="btn" style="font-size: 1.2rem; padding: 1rem 2rem;">Follow @nostream_tech</a>
+        </div>
 
         <section id="content">
             <div class="card">
-                <p>Hey everyone, I’m the developer of Dot Hub. Dot Hub for Glyph Matrix has just hit 25,000 downloads, which is a number I never imagined reaching. When I saw that the Nothing Phone (3) came with a Glyph Matrix and that there was an SDK available, I knew I wanted to build something for it. I started by sketching out a few Glyph Toy ideas and quickly put together a basic UI.</p>
+                <div style="text-align: center; margin-bottom: 2rem;">
+                    <a href="https://www.instagram.com/nostream_tech/">
+                        <img src="images/ig_profile.png" alt="@nostream_tech Instagram profile preview" style="width: 100%; max-width: 360px; border-radius: 12px;">
+                    </a>
+                </div>
 
-                <p>When I finally managed to buy my Phone 3 at a community event, I actually started coding on the train ride home. At first, I had to figure a lot of things out. I started programming only two years ago, and my knowledge at that time was mostly basic Java. After a lot of reading, searching, and experimenting, I managed to finish my first three Glyph Toys. Then I wanted to release my app on the Play Store. Turns out, that’s not as easy as I thought. I had to deal with privacy policies, legal requirements like an imprint, and missing parts such as a settings page.</p>
+                <h2 style="margin-top: 0;">Never miss an update.</h2>
+                <p>Instagram is where I post everything first: sneak peeks of upcoming features, behind-the-scenes work, beta sign-ups, release announcements and the occasional poll on what to build next.</p>
 
-                <p>I thought I was ready for release, but then I learned that every Play Store app needs a two-week beta phase with at least twelve testers. I had no idea where to find twelve people for that. So I asked for help, and within an hour I already had enough testers. Over the next few days more than fifty people joined. I want to thank everyone who took part in the beta. Without you, none of this would have worked. During the beta I added new Glyph Toys like the music visualizer and also the main feature that inspired the app’s name and logo: a section showing Glyph Toys from other apps.</p>
+                <div style="text-align: center; margin: 2rem 0;">
+                    <img src="images/nostream_tech_qr.png" alt="Scan to follow @nostream_tech on Instagram" style="width: 220px; max-width: 60%; background-color: #ffffff; padding: 12px; border-radius: 12px;">
+                    <p style="font-size: 0.9rem; color: #aaa; margin-top: 0.75rem;">Scan to open <strong>@nostream_tech</strong></p>
+                </div>
 
-                <p>When Dot Hub launched, I was afraid nobody would notice. But the launch went great. Within two weeks, the app had been downloaded over a thousand times. I even received some donations through Buy Me a Coffee and got featured by Nothing India with some really well-made videos. It was a crazy experience. After that, I quickly started on version 2.0, which came out a month later. Around that time, I was honestly pretty burned out. I had been coding every minute I could, and that wasn’t sustainable. I forced myself to take a break because I was afraid of losing motivation completely. That break was definitely needed.</p>
+                <h4 style="color: var(--accent-color); font-size: 0.9rem; text-transform: uppercase; margin-bottom: 1rem;">What you'll see</h4>
+                <ul style="margin-left: 1.2rem; margin-bottom: 2rem;">
+                    <li><strong>Early Previews:</strong> See new features before they ship to the Play Store.</li>
+                    <li><strong>Beta Invites:</strong> Closed beta openings are announced there first.</li>
+                    <li><strong>Patch Notes:</strong> Quick visual summaries of every update.</li>
+                    <li><strong>Direct Feedback:</strong> Reply to a story or DM me — I read everything.</li>
+                </ul>
 
-                <p>Once I got my energy back, I started working on version 3.0. Unfortunately, I had to drop several planned features for different reasons. In the end, I built the Ultimate AOD, which combines five features in one Glyph Toy. I also realized that for this project to keep growing, it needs to generate some revenue. That’s why I decided to switch to a subscription model even though I personally don’t love it. Ongoing development just requires ongoing support. I hope you can understand that.</p>
-
-                <p>Thank you to everyone who has helped me so far. I’m excited to keep working on Dot Hub and I’ll share more about the next update next week.</p>
+                <h4 style="color: var(--accent-color); font-size: 0.9rem; text-transform: uppercase; margin-bottom: 1rem;">How to follow</h4>
+                <p>Scan the QR code above or head over to <a href="https://www.instagram.com/nostream_tech/" class="accent">@nostream_tech</a> and tap follow. That's it — you're in the loop.</p>
             </div>
         </section>
 
@@ -69,9 +87,11 @@
             document.querySelector('header').style.display = 'none';
             document.querySelector('h1').style.display = 'none';
             document.querySelector('main > span.accent').style.display = 'none'; // The date
+            const followSection = document.getElementById('follow-section');
+            if (followSection) followSection.style.display = 'none';
             document.getElementById('content').style.display = 'none';
             document.querySelector('.footer-copyright').style.display = 'none';
-            document.querySelector('.btn').parentNode.style.display = 'none'; // Back button
+            document.querySelectorAll('.btn').forEach(b => b.parentNode.style.display = 'none'); // Back button (and any other .btn parents)
 
             // 2. Übergeordnete Container (Body, umschließendes Div, Main) auf Vollbild zwingen
             document.body.style.margin = '0';

@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NClock | Time, reimagined</title>
+    <title>NClock | A simple clock for Android</title>
+    <meta name="description" content="N Clock is a simple clock app for Android. Alarms, timer and stopwatch in one clean dark interface, inspired by the Nothing design language.">
     <link rel="stylesheet" href="stylesheet.css">
 </head>
 <body>
@@ -17,26 +18,112 @@
             <a href="blog.html">Blog</a>
         </nav>
     </header>
-
     <main>
         <h1>NClock<span class="accent">.</span></h1>
-        <h2>Time, reimagined.</h2>
 
-        <p>N Clock is a simple clock app. Inspired by the Nothing design language, it provides a clean and highly functional experience in one straightforward dark theme interface.</p>
+        <div class="card" style="border-color: var(--accent-color); margin-bottom: 2rem; text-align: center;">
+            <h3 class="accent">Coming Summer 2026</h3>
+            <p style="margin-bottom: 0;">Stay tuned for the official release on Android.</p>
+        </div>
+
+        <h2>A simple clock app.</h2>
+
+        <p>N Clock is a simple clock app for Android. Alarms, timer and stopwatch in one clean dark interface, inspired by the Nothing design language.</p>
+
+        <p>No ads. No tracking. No subscription. Buy it once, it stays yours.</p>
+
+        <div style="text-align: center; margin: 2rem 0;">
+            <a href="https://play.google.com/store/apps/details?id=de.nostream.nclock" class="btn" style="font-size: 1.2rem; padding: 1rem 2rem;">Download on Google Play</a>
+            <div style="margin-top: 1.5rem;">
+                <a href="nclock-nothing-os-allow-background-usage.html" class="accent" style="text-transform: uppercase; font-size: 0.9rem; text-decoration: none; border-bottom: 1px dashed var(--accent-color);">Important: Allow background usage on Nothing OS</a>
+            </div>
+        </div>
+
+        <section id="wake-you-up">
+            <h2>Built to wake you up<span class="accent">.</span></h2>
+            <p>An alarm has one job. It has to ring. N Clock treats that as the headline, not a side note.</p>
+
+            <div class="toy-section">
+                <div class="toy-image"><img src="images/nc_logo_trans.png" alt="Placeholder: alarm screen preview"></div>
+                <div class="toy-content">
+                    <h3>Alarms that actually ring</h3>
+                    <p>Exact alarm scheduling on every supported Android version. Direct Boot support, so your alarms still trigger after a reboot, even before you unlock the phone. The full screen alarm wakes the display and plays through Do Not Disturb. Snooze or stop from the lock screen with a single tap.</p>
+                    <p>There is also a setup guide for Xiaomi, Oppo, Vivo, Honor and Nothing OS, so the system stops quietly killing your alarms overnight.</p>
+                </div>
+            </div>
+        </section>
 
         <section id="features">
-            <h2>Features</h2>
+            <h2>Features<span class="accent">.</span></h2>
+
             <div class="toy-section">
-                <div class="toy-image"><img src="/images/nc_logo_trans.png" alt="NClock Interface Preview"></div>
+                <div class="toy-image"><img src="images/nc_logo_trans.png" alt="Placeholder: alarms"></div>
                 <div class="toy-content">
-                    <h3>Minimalist Design</h3>
-                    <p>Experience time without distractions. NClock follows the iconic dot-matrix aesthetic, fitting perfectly into your Nothing OS ecosystem.</p>
+                    <h3>Alarms</h3>
+                    <p>Labels, daily or one-off repeats, your own tones. A growing library of hand-made and licensed ringtones.</p>
                 </div>
             </div>
 
-            <div style="text-align: center; margin-bottom: 4rem;">
-                <a href="https://play.google.com/store/apps/details?id=de.nostream.nclock" class="btn" style="font-size: 1.2rem; padding: 1rem 2rem;">Download on Google Play</a>
+            <div class="toy-section">
+                <div class="toy-image"><img src="images/timer.png" alt="Placeholder: timer"></div>
+                <div class="toy-content">
+                    <h3>Timer</h3>
+                    <p>Quick presets for tea (Black, Green, Chai, Oolong) and common durations. A notification you can see at a glance, a plus one minute button and instant restart. Keeps running after you close the app or reboot the phone.</p>
+                </div>
             </div>
+
+            <div class="toy-section">
+                <div class="toy-image"><img src="images/nc_logo_trans.png" alt="Placeholder: stopwatch"></div>
+                <div class="toy-content">
+                    <h3>Stopwatch</h3>
+                    <p>Lap times, clear numbers, nothing else in the way.</p>
+                </div>
+            </div>
+
+            <div class="toy-section">
+                <div class="toy-image"><img src="images/nc_logo_trans.png" alt="Placeholder: clock"></div>
+                <div class="toy-content">
+                    <h3>Clock</h3>
+                    <p>One focused dark theme. Nothing inspired red on black.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="privacy">
+            <h2>Privacy by design<span class="accent">.</span></h2>
+            <ul style="margin-bottom: 1.5rem; padding-left: 1.2rem;">
+                <li>No analytics, no crash reporters, no advertising IDs</li>
+                <li>No account, no sign in, no cloud sync</li>
+                <li>Works fully offline</li>
+                <li>Your data stays on your device</li>
+                <li>GDPR-compliant, built in Germany</li>
+            </ul>
+            <p>The only time the app talks to the internet is when Google Play checks the license for your one time purchase.</p>
+        </section>
+
+        <section id="requirements">
+            <h2>Requirements<span class="accent">.</span></h2>
+            <ul style="margin-bottom: 1.5rem; padding-left: 1.2rem;">
+                <li>Android 12 or newer</li>
+            </ul>
+            <p>On the first launch, N Clock asks for three things:</p>
+            <ul style="margin-bottom: 1.5rem; padding-left: 1.2rem;">
+                <li>Notifications</li>
+                <li>Schedule exact alarms</li>
+                <li>Display over the lock screen, so the full screen alarm can appear</li>
+            </ul>
+        </section>
+
+        <section id="languages">
+            <h2>Languages<span class="accent">.</span></h2>
+            <p>English. Deutsch. हिन्दी.</p>
+        </section>
+
+        <section id="support">
+            <h2>Support<span class="accent">.</span></h2>
+            <p>Have a question first? Check the <a href="nclock_faq.html" class="accent">N Clock FAQ</a>.</p>
+            <p>Questions, bug reports or ideas are always welcome at <a href="mailto:contact@nostream.de" class="accent">contact@nostream.de</a>. Every message is read by a person. That person is the developer.</p>
+            <p>Made with care</p>
         </section>
     </main>
 

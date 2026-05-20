@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>10 Days 10 Features Challenge | nostream dev</title>
+  <link rel="stylesheet" href="../stylesheet.css">
+  <link rel="stylesheet" href="../mobile_view.css">
+</head>
+<body>
+<div class="container">
+  <header>
+    <div class="logo">nostream dev<span>.</span></div>
+    <nav>
+      <a href="../index.html">Home</a>
+      <a href="../dot-hub.html">Dot Hub</a>
+      <a href="../nclock.html">NClock</a>
+      <a href="../blog.html" class="accent">Blog</a>
+    </nav>
+  </header>
+
+
+
+  <main>
+    <div id="app-news-card" class="app-news-card" style="display: none;">
+        <video src="images/10d10fapp.mp4" autoplay loop muted playsinline style="width: 100%; height: 100%; object-fit: cover;">
+        </video>
+    </div>
+
+    <span class="accent">2026-05-01</span>
+    <h1>10 Days 10 Features Challenge<span class="accent">_</span></h1>
+
+    <section id="content">
+      <div class="card" style="margin-bottom: 2rem;">
+        <video src="images/10d10f.mp4" autoplay loop muted playsinline style="width: 100%; height: 100%; object-fit: cover;">
+        </video>
+        <p>Welcome to the <strong>Dot Hub 10-Day Challenge</strong>! For the next ten days, I am pushing the limits of the Glyph Matrix by implementing one brand-new feature or animation style every single day.</p>
+        
+        <h4 style="margin-top: 1rem; color: var(--accent-color); font-size: 0.9rem;">The Goal</h4>
+        <p>The community is at the heart of Dot Hub. I want to see your most creative ideas for Glyph Toys, AOD backgrounds, and utilities. Each day, I'll pick an idea and bring it to life.</p>
+
+        <h4 style="margin-top: 1rem; color: var(--accent-color); font-size: 0.9rem;">Giveaway</h4>
+        <p>To celebrate, we are running a giveaway on Reddit and the Nothing Community. If your idea is selected and implemented, you'll receive a code for 90 days of <strong>Dot Hub Pro</strong>. We're also giving away beta access to our upcoming app, <strong>NClock</strong>.</p>
+
+        <p style="margin-top: 1rem;"><a href="giveaway_10d_t&c.html" class="accent">Read the Giveaway Terms & Conditions here.</a></p>
+      </div>
+
+      <div class="card" style="margin-bottom: 2rem;">
+        <h3 class="accent">The Schedule</h3>
+        <p>Check back here or follow the dev blog for daily updates on the newly added features!</p>
+        <ul style="margin-left: 1.2rem; margin-top: 1rem;">
+          <li><strong>Day 1-10:</strong> Stay tuned...</li>
+        </ul>
+      </div>
+    </section>
+
+    <div style="margin-top: 2rem;">
+      <a href="../blog.html" class="btn">Back to Blog</a>
+    </div>
+  </main>
+
+  <div class="footer-copyright">
+    <p>© 2026 Paul Gesekus.</p>
+    <a href="../privacy_policy.html" class="accent" style="margin: 20px;">Privacy Policy</a>
+    <a href="../impressum.html" class="accent" style="margin: 20px;">Imprint</a>
+  </div>
+</div>
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    // Check URL for ?platform=app
+    const urlParams = new URLSearchParams(window.location.search);
+
+    if (urlParams.get('platform') === 'app') {
+      // 1. Standard-Web-Elemente ausblenden
+      document.querySelector('header').style.display = 'none';
+      document.querySelector('h1').style.display = 'none';
+      document.querySelector('main > span.accent').style.display = 'none'; // The date
+      document.getElementById('content').style.display = 'none';
+      document.querySelector('.footer-copyright').style.display = 'none';
+      document.querySelector('.btn').parentNode.style.display = 'none'; // Back button
+
+      // 2. Übergeordnete Container (Body, umschließendes Div, Main) auf Vollbild zwingen
+      document.body.style.margin = '0';
+      document.body.style.padding = '0';
+      document.body.style.height = '100vh';
+      document.body.style.overflow = 'hidden'; // Verhindert ungewolltes Scrollen
+
+      const wrapperDiv = document.querySelector('body > div');
+      if (wrapperDiv) {
+        wrapperDiv.style.margin = '0';
+        wrapperDiv.style.padding = '0';
+        wrapperDiv.style.height = '100vh';
+        wrapperDiv.style.maxWidth = '100%';
+      }
+
+      const mainElement = document.querySelector('main');
+      mainElement.style.margin = '0';
+      mainElement.style.padding = '0';
+      mainElement.style.height = '100vh';
+      mainElement.style.display = 'block';
+
+      // 3. App-News-Card anzeigen und Größe garantieren
+      const appNewsCard = document.getElementById('app-news-card');
+      appNewsCard.style.display = 'flex';
+      appNewsCard.style.width = '100vw';
+      appNewsCard.style.height = '100vh';
+      appNewsCard.style.borderRadius = '0'; // Zur Sicherheit, falls woanders überschrieben
+    }
+  });
+</script>
+</body>
+</html>
