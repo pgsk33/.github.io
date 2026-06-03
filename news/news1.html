@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>10 Days 10 Features Challenge | nostream dev</title>
+    <link rel="canonical" href="https://nostream.tech/news/news1.html">
     <link rel="stylesheet" href="../stylesheet.css">
     <link rel="stylesheet" href="../mobile_view.css">
 </head>
@@ -34,33 +35,60 @@
                 <video src="../images/10%20Days%2010%20Features.mp4" autoplay loop muted playsinline style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px; margin-bottom: 1rem;">
                 </video>
                 <h3 class="accent">Overview</h3>
-                <p>Over the course of 10 days, we implemented the following features and improvements:</p>
+                <p>Over the course of 10 days, we implemented the following features and improvements &mdash; one new feature every single day:</p>
 
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem; margin: 1.5rem 0;">
-                    <img src="../images/3.4.png" alt="Day 1" style="width: 100%; border-radius: 8px;">
-                    <img src="../images/3.5.png" alt="Day 2" style="width: 100%; border-radius: 8px;">
-                    <img src="../images/3.6.png" alt="Day 3" style="width: 100%; border-radius: 8px;">
-                    <img src="../images/3.7.png" alt="Day 4" style="width: 100%; border-radius: 8px;">
-                    <img src="../images/3.8.png" alt="Day 5" style="width: 100%; border-radius: 8px;">
-                    <img src="../images/3.9.png" alt="Day 6" style="width: 100%; border-radius: 8px;">
-                    <img src="../images/3.10.png" alt="Day 7" style="width: 100%; border-radius: 8px;">
-                    <img src="../images/3.11.png" alt="Day 8" style="width: 100%; border-radius: 8px;">
-                    <img src="../images/3.12.png" alt="Day 9" style="width: 100%; border-radius: 8px;">
-                    <img src="../images/3.13.png" alt="Day 10" style="width: 100%; border-radius: 8px;">
+                <div class="challenge-grid">
+                    <div class="challenge-day">
+                        <span class="day-badge">Day 01</span>
+                        <img src="../images/3.4.png" alt="Day 1 — Better Clock">
+                        <div class="day-feature">Better Clock</div>
+                    </div>
+                    <div class="challenge-day">
+                        <span class="day-badge">Day 02</span>
+                        <img src="../images/3.5.png" alt="Day 2 — Network Speed">
+                        <div class="day-feature">Network Speed</div>
+                    </div>
+                    <div class="challenge-day">
+                        <span class="day-badge">Day 03</span>
+                        <img src="../images/3.6.png" alt="Day 3 — Camera Indicator">
+                        <div class="day-feature">Camera Indicator</div>
+                    </div>
+                    <div class="challenge-day">
+                        <span class="day-badge">Day 04</span>
+                        <img src="../images/3.7.png" alt="Day 4 — Brightness Slider">
+                        <div class="day-feature">Brightness Slider</div>
+                    </div>
+                    <div class="challenge-day">
+                        <span class="day-badge">Day 05</span>
+                        <img src="../images/3.8.png" alt="Day 5 — Camera Indicator Eye animation style">
+                        <div class="day-feature">Camera Indicator &ndash; Eye Animation</div>
+                    </div>
+                    <div class="challenge-day">
+                        <span class="day-badge">Day 06</span>
+                        <img src="../images/3.9.png" alt="Day 6 — Speedometer animation style">
+                        <div class="day-feature">Speedometer Animation</div>
+                    </div>
+                    <div class="challenge-day">
+                        <span class="day-badge">Day 07</span>
+                        <img src="../images/3.10.png" alt="Day 7 — Vinyl Music Visualizer">
+                        <div class="day-feature">Vinyl Music Visualizer</div>
+                    </div>
+                    <div class="challenge-day">
+                        <span class="day-badge">Day 08</span>
+                        <img src="../images/3.11.png" alt="Day 8 — Vertical Clock UAOD">
+                        <div class="day-feature">Vertical Clock UAOD</div>
+                    </div>
+                    <div class="challenge-day">
+                        <span class="day-badge">Day 09</span>
+                        <img src="../images/3.12.png" alt="Day 9 — Shake to Wake">
+                        <div class="day-feature">Shake to Wake</div>
+                    </div>
+                    <div class="challenge-day">
+                        <span class="day-badge">Day 10</span>
+                        <img src="../images/3.13.png" alt="Day 10 — Remaining Time charging indicator animation">
+                        <div class="day-feature">Remaining Time Charging Indicator</div>
+                    </div>
                 </div>
-
-                <ul style="margin-left: 1.2rem; margin-top: 1rem;">
-                    <li><strong>Day 1:</strong> Better Clock</li>
-                    <li><strong>Day 2:</strong> Network Speed</li>
-                    <li><strong>Day 3:</strong> Camera Indicator</li>
-                    <li><strong>Day 4:</strong> Brightness Slider</li>
-                    <li><strong>Day 5:</strong> Camera Indicator – Eye animation style</li>
-                    <li><strong>Day 6:</strong> Speedometer animation style</li>
-                    <li><strong>Day 7:</strong> Vinyl Music Visualizer</li>
-                    <li><strong>Day 8:</strong> Vertical Clock UAOD</li>
-                    <li><strong>Day 9:</strong> Shake to Wake</li>
-                    <li><strong>Day 10:</strong> Remaining Time charging indicator animation</li>
-                </ul>
             </div>
 
             <div class="card" style="margin-bottom: 2rem;">
@@ -93,7 +121,6 @@
 </div>
 <script>
     document.addEventListener("DOMContentLoaded", function() {
-        // Check URL for ?platform=app
         const urlParams = new URLSearchParams(window.location.search);
 
         if (urlParams.get('platform') === 'app') {

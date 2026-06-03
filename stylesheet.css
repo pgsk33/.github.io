@@ -412,6 +412,64 @@ footer {
     margin: 0;
 }
 
+/* --- 10 DAYS 10 FEATURES: Challenge Overview --- */
+.challenge-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 1.25rem;
+    margin: 2rem 0 1rem 0;
+}
+
+.challenge-day {
+    position: relative;
+    border: 1px solid #333;
+    background-color: var(--bg-color);
+    overflow: hidden;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.challenge-day:hover {
+    transform: translateY(-5px);
+    border-color: var(--accent-color);
+}
+
+.challenge-day .day-badge {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: var(--accent-color);
+    color: var(--bg-color);
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 3px 8px;
+    z-index: 2;
+}
+
+.challenge-day img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-bottom: 1px dashed #333;
+}
+
+.challenge-day .day-feature {
+    padding: 0.75rem;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--fg-color);
+    line-height: 1.4;
+}
+
+@media (max-width: 768px) {
+    .challenge-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
 /* Mobile Responsiveness update for AOD Hero */
 @media (max-width: 768px) {
     .aod-stats {

@@ -4,8 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Follow nostream on Instagram | nostream dev</title>
+    <link rel="canonical" href="https://nostream.tech/news/news2.html">
     <link rel="stylesheet" href="../stylesheet.css">
     <link rel="stylesheet" href="../mobile_view.css">
+    <script>
+        // If this page is opened outside the app (no ?platform=app), redirect
+        // straight to Instagram. Runs before the body renders to avoid a flash.
+        if (new URLSearchParams(window.location.search).get('platform') !== 'app') {
+            window.location.replace('https://www.instagram.com/nostream_tech/');
+        }
+    </script>
 </head>
 <body>
 <div class="container">
