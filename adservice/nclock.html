@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>N Clock | Pre-Register Now</title>
+    <meta name="description" content="The clock that actually matches your Nothing phone. Pure black, dot-matrix type, one red accent — and alarms that survive Nothing OS. Pre-register N Clock now, launching Summer 2026.">
+    <link rel="canonical" href="https://nostream.tech/adservice/nclock.html">
+
+    <!-- Early redirect: anyone loading the normal site (no ?platform=app) is sent
+         straight to the Play Store. Runs before render so the page never flashes.
+         The in-app banner uses ?platform=app and is therefore exempt. -->
+    <script>
+        (function () {
+            if (new URLSearchParams(window.location.search).get('platform') !== 'app') {
+                window.location.replace('https://play.google.com/store/apps/details?id=de.nostream.nclock');
+            }
+        })();
+    </script>
+
+    <link rel="stylesheet" href="../stylesheet.css">
+    <link rel="stylesheet" href="../mobile_view.css">
+
+    <style>
+        /* =========================================================
+           AD BANNER  —  the embeddable unit (shown in App Selector)
+           Designed to feel native to the host app: pure black,
+           dark "folder" card, red accent dot, wide mono lettering.
+           ========================================================= */
+        .ad-stage {
+            display: none; /* shown only in ?platform=app mode via JS */
+        }
+
+        .ad-banner {
+            display: flex;
+            align-items: center;
+            gap: 1.1rem;
+            text-decoration: none;
+            color: var(--fg-color);
+            background-color: #161616;          /* matches host folder-cards */
+            border: 1px solid #262626;
+            border-radius: 26px;
+            padding: 1.1rem 1.3rem;
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+            max-width: 460px;
+            -webkit-tap-highlight-color: transparent;
+            transition: transform 0.15s ease, border-color 0.15s ease;
+        }
+
+        .ad-banner:active {
+            transform: scale(0.98);
+            border-color: var(--accent-color);
+        }
+
+        /* The little folder "tab" in the top-left, echoing the host cards */
+        .ad-banner::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 38%;
+            height: 18px;
+            background-color: #161616;
+            border-radius: 0 0 18px 0;
+        }
+
+        /* App icon slot (left) — PLACEHOLDER IMAGE GOES HERE */
+        .ad-icon {
+            flex-shrink: 0;
+            width: 64px;
+            height: 64px;
+            border-radius: 16px;
+            background-color: #0a0a0a;
+            border: 1px solid #2a2a2a;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .ad-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .ad-body {
+            flex-grow: 1;
+            min-width: 0;
+        }
+
+        .ad-eyebrow {
+            display: inline-block;
+            font-size: 0.6rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--accent-color);
+            margin-bottom: 0.25rem;
+        }
+
+        .ad-title {
+            font-size: 1.35rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            line-height: 1.1;
+            margin: 0 0 0.2rem 0;
+        }
+
+        .ad-sub {
+            font-size: 0.72rem;
+            color: #9a9a9a;
+            margin: 0;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        /* CTA pill on the right */
+        .ad-cta {
+            flex-shrink: 0;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--bg-color);
+            background-color: var(--accent-color);
+            padding: 0.55rem 0.85rem;
+            border-radius: 999px;
+            font-weight: 700;
+        }
+
+        /* Tiny red status dot, top-right, echoing the host's red FAB */
+        .ad-banner .status-dot {
+            position: absolute;
+            top: 14px;
+            right: 16px;
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background-color: var(--accent-color);
+            box-shadow: 0 0 8px var(--accent-color);
+        }
+
+        @media (max-width: 360px) {
+            .ad-banner:not(.fullscreen) .ad-cta span { display: none; } /* arrow only on tiny strips */
+            .ad-banner:not(.fullscreen) .ad-title { font-size: 1.15rem; letter-spacing: 2px; }
+        }
+
+        /* Fill variant — used in ?platform=app. The app drops this page into a
+           banner-shaped webview whose size differs per phone, so everything is
+           fluid: the banner fills 100% of whatever box it's given, and the icon
+           and type scale with that box instead of using fixed sizes. */
+        .ad-banner.fullscreen {
+            width: 100%;
+            height: 100%;
+            max-width: none;
+            border: none;
+            border-radius: 0;
+            gap: clamp(0.6rem, 3vw, 1.4rem);
+            padding: clamp(0.6rem, 3.5vw, 1.4rem);
+        }
+
+        .ad-banner.fullscreen::before { display: none; } /* full-bleed, no folder tab */
+
+        /* Icon scales with the banner's height, capped so it never gets silly. */
+        .ad-banner.fullscreen .ad-icon {
+            width: auto;
+            height: clamp(40px, 64%, 96px);
+            aspect-ratio: 1 / 1;
+            border-radius: clamp(12px, 4%, 22px);
+        }
+
+        .ad-banner.fullscreen .ad-eyebrow { font-size: clamp(0.55rem, 2.6vw, 0.8rem); }
+        .ad-banner.fullscreen .ad-title  { font-size: clamp(1.2rem, 6vw, 2rem); letter-spacing: clamp(2px, 1.2vw, 5px); }
+        .ad-banner.fullscreen .ad-sub    { font-size: clamp(0.7rem, 3vw, 1rem); }
+        .ad-banner.fullscreen .ad-cta    { font-size: clamp(0.6rem, 2.8vw, 0.85rem); padding: 0.7rem 1.2rem; }
+
+    </style>
+</head>
+<body>
+<div class="container">
+    <header>
+        <div class="logo">nostream dev<span>.</span></div>
+        <nav>
+            <a href="../index.html">Home</a>
+            <a href="../dot-hub.html">Dot Hub</a>
+            <a href="../nclock.html" class="accent">NClock</a>
+            <a href="../blog.html">Blog</a>
+        </nav>
+    </header>
+
+    <main>
+        <!-- =====================================================
+             AD BANNER  (embeddable unit)
+             Hidden on the web; shown fill-screen only in ?platform=app.
+             Tapping it sends the user straight to the N Clock Google Play
+             listing (pre-registration), opened outside the webview.
+
+             >>> PLACEHOLDER IMAGE 1: app icon
+                 file:  ../images/nclock_icon.png   (square, ~512x512)
+                 shows: the N Clock app icon (red-on-black logo)
+             ===================================================== -->
+        <div class="ad-stage" id="ad-stage">
+            <a class="ad-banner" href="https://play.google.com/store/apps/details?id=de.nostream.nclock" target="_blank" rel="noopener">
+                <span class="status-dot"></span>
+                <div class="ad-icon" style="color:#ff0000;font-weight:700;letter-spacing:1px;">
+                    <img src="../images/nc_logo_trans.png" alt="N Clock app icon"
+                         onerror="this.style.display='none'; this.parentNode.append('NC');">
+                </div>
+                <div class="ad-body">
+                    <span class="ad-eyebrow">Pre-Register</span>
+                    <h2 class="ad-title">N Clock</h2>
+                    <p class="ad-sub">A clock made for your Nothing phone.</p>
+                </div>
+                <span class="ad-cta"><span>Get it</span> ▸</span>
+            </a>
+        </div>
+
+        <!-- =====================================================
+             REDIRECT FALLBACK  (web view)
+             Web visitors are auto-redirected to the Play Store by the
+             script in <head>. This is only ever seen if that redirect
+             fails (e.g. JavaScript disabled), so it's a manual escape
+             hatch — no marketing content.
+             ===================================================== -->
+        <section id="landing" style="border-top: none; padding-top: 0; text-align: center;">
+            <h1 style="margin-bottom: 0.5rem;">N Clock<span class="accent">.</span></h1>
+            <p style="max-width: 460px; margin: 0 auto 2rem auto; color:#aaa;">
+                Taking you to Google Play&hellip; If nothing happens, tap the button below.
+            </p>
+            <a href="https://play.google.com/store/apps/details?id=de.nostream.nclock"
+               class="btn" style="font-size: 1.1rem; padding: 1rem 2rem;">
+                Open Google Play
+            </a>
+        </section>
+    </main>
+
+    <div class="footer-copyright">
+        <p>© 2026 Paul Gesekus.</p>
+        <a href="../privacy_policy.html" class="accent" style="margin: 20px;">Privacy Policy</a>
+        <a href="../impressum.html" class="accent" style="margin: 20px;">Imprint</a>
+    </div>
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const urlParams = new URLSearchParams(window.location.search);
+
+        if (urlParams.get('platform') === 'app') {
+            // 1. Hide every web element — only the banner stays.
+            document.querySelector('header').style.display = 'none';
+            document.getElementById('landing').style.display = 'none';
+            document.querySelector('.footer-copyright').style.display = 'none';
+
+            // 2. Force a clean, edge-to-edge stage.
+            document.body.style.margin = '0';
+            document.body.style.padding = '0';
+            document.body.style.height = '100vh';
+            document.body.style.overflow = 'hidden';
+
+            const wrapperDiv = document.querySelector('body > div');
+            if (wrapperDiv) {
+                wrapperDiv.style.margin = '0';
+                wrapperDiv.style.padding = '0';
+                wrapperDiv.style.height = '100vh';
+                wrapperDiv.style.maxWidth = '100%';
+            }
+
+            const mainElement = document.querySelector('main');
+            mainElement.style.margin = '0';
+            mainElement.style.padding = '0';
+            mainElement.style.height = '100vh';
+
+            // 3. Let the ad banner fill the entire webview, edge to edge.
+            const stage = document.getElementById('ad-stage');
+            stage.style.display = 'flex';
+            stage.style.width = '100vw';
+            stage.style.height = '100vh';
+            stage.style.padding = '0';
+
+            document.querySelector('.ad-banner').classList.add('fullscreen');
+        }
+    });
+</script>
+</body>
+</html>
