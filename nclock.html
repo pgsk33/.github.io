@@ -3,12 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NClock | A simple clock for Android</title>
-    <meta name="description" content="N Clock is a simple clock app for Android. Alarms, timer and stopwatch in one clean dark interface, inspired by the Nothing design language.">
+    <title>NClock | Built for Nothing. Just not by Nothing</title>
+    <meta name="description" content="N Clock is the clock app built for Nothing phones: alarms that actually ring, tea timers, a stopwatch with laps, six widgets, 30+ alarm sounds, four themes and Glyph progress. No ads, no tracking — buy it once, it stays yours.">
     <link rel="canonical" href="https://nostream.tech/nclock.html">
+    <link rel="icon" type="image/png" href="images/nc_logo_trans.png">
+    <link rel="apple-touch-icon" href="images/nc_logo_trans.png">
     <link rel="stylesheet" href="stylesheet.css">
 </head>
-<body>
+<body class="presentation">
 <div class="container">
     <header>
         <div class="logo">Dev<span>.</span></div>
@@ -19,114 +21,237 @@
             <a href="blog.html">Blog</a>
         </nav>
     </header>
+
+    <nav class="slide-dots" aria-label="Sections">
+        <a href="#top" title="N Clock"></a>
+        <a href="#wake-you-up" title="Alarms"></a>
+        <a href="#sounds" title="Sounds"></a>
+        <a href="#timer" title="Timer"></a>
+        <a href="#stopwatch" title="Stopwatch"></a>
+        <a href="#glyph" title="Glyph"></a>
+        <a href="#widgets" title="Widgets"></a>
+        <a href="#themes" title="Themes"></a>
+        <a href="#get" title="Overview"></a>
+    </nav>
+
     <main>
-        <h1>NClock<span class="accent">.</span></h1>
-
-        <div class="card" style="border-color: var(--accent-color); margin-bottom: 2rem; text-align: center;">
-            <h3 class="accent">Coming Summer 2026</h3>
-            <p style="margin-bottom: 0;">Stay tuned for the official release on Android.</p>
-        </div>
-
-        <h2>A simple clock app.</h2>
-
-        <p>N Clock is a simple clock app for Android. Alarms, timer and stopwatch in one clean dark interface, inspired by the Nothing design language.</p>
-
-        <p>No ads. No tracking. No subscription. Buy it once, it stays yours.</p>
-
-        <div style="text-align: center; margin: 2rem 0;">
-            <a href="https://play.google.com/store/apps/details?id=de.nostream.nclock" class="btn" style="font-size: 1.2rem; padding: 1rem 2rem;">Download on Google Play</a>
-            <div style="margin-top: 1.5rem;">
-                <a href="nclock-nothing-os-allow-background-usage.html" class="accent" style="text-transform: uppercase; font-size: 0.9rem; text-decoration: none; border-bottom: 1px dashed var(--accent-color);">Important: Allow background usage on Nothing OS</a>
+        <section id="top" class="slide hero-slide">
+            <div class="hero-brand">
+                <img class="hero-logo" src="images/nc_logo_trans.png" alt="N Clock logo">
+                <h1>N Clock<span class="accent">.</span></h1>
             </div>
-        </div>
+            <p class="hero-tagline">Built for Nothing. Just not by Nothing.</p>
+            <p class="hero-clock" id="hero-clock">--:--:--</p>
+            <p class="hero-tagline">Alarms, timer and stopwatch. No ads. No tracking. Buy it once, it stays yours.</p>
+            <a href="https://play.google.com/store/apps/details?id=de.nostream.nclock" class="btn" style="font-size: 1.1rem; padding: 0.9rem 1.8rem;">Pre-register on Google Play</a>
+            <div class="scroll-hint">Scroll &#9660;</div>
+        </section>
 
-        <section id="wake-you-up">
-            <h2>Built to wake you up<span class="accent">.</span></h2>
-            <p>An alarm has one job. It has to ring. N Clock treats that as the headline, not a side note.</p>
-
-            <div class="toy-section">
-                <div class="toy-image"><img src="images/nc_logo_trans.png" alt="Placeholder: alarm screen preview"></div>
-                <div class="toy-content">
-                    <h3>Alarms that actually ring</h3>
-                    <p>Exact alarm scheduling on every supported Android version. Direct Boot support, so your alarms still trigger after a reboot, even before you unlock the phone. The full screen alarm wakes the display and plays through Do Not Disturb. Snooze or stop from the lock screen with a single tap.</p>
-                    <p>There is also a setup guide for Xiaomi, Oppo, Vivo, Honor and Nothing OS, so the system stops quietly killing your alarms overnight.</p>
+        <section id="wake-you-up" class="slide">
+            <div class="slide-media"><img src="images/mobileAlarm.webp" alt="N Clock alarm"></div>
+            <h2>Alarms that actually ring<span class="accent">.</span></h2>
+            <div class="shot-section">
+                <div class="shot-pair">
+                    <div class="phone-shot natural pop"><img src="images/Screenshot%202026-04-24%20203146.png" alt="N Clock alarm list with labels, repeat days and toggles"></div>
+                    <div class="phone-shot natural pop"><img src="images/Screenshot%202026-04-24%20203120.png" alt="N Clock edit alarm dialog with label, ringtone and weekday repeat"></div>
+                </div>
+                <div class="shot-content">
+                    <p class="demo-hero">07:30</p>
+                    <p class="demo-sub" id="alarm-demo-in">Rings in --</p>
+                    <p class="hide-mobile">Exact scheduling and Direct Boot, so alarms fire even after a reboot, ring through Do Not Disturb and survive the app being closed.</p>
+                    <ul style="margin-bottom: 1.5rem; padding-left: 1.2rem;">
+                        <li>Repeat once, daily or any weekdays</li>
+                        <li>Own label and sound per alarm</li>
+                        <li>Five minute snooze, ten minute auto stop</li>
+                    </ul>
+                    <p><a href="nclock-nothing-os-allow-background-usage.html" class="accent" style="text-transform: uppercase; font-size: 0.85rem; text-decoration: none; border-bottom: 1px dashed var(--accent-color);">Important: Allow background usage on Nothing OS</a></p>
                 </div>
             </div>
         </section>
 
-        <section id="features">
-            <h2>Features<span class="accent">.</span></h2>
-
-            <div class="toy-section">
-                <div class="toy-image"><img src="images/nc_logo_trans.png" alt="Placeholder: alarms"></div>
-                <div class="toy-content">
-                    <h3>Alarms</h3>
-                    <p>Labels, daily or one-off repeats, your own tones. A growing library of hand-made and licensed ringtones.</p>
-                </div>
-            </div>
-
-            <div class="toy-section">
-                <div class="toy-image"><img src="images/timer.png" alt="Placeholder: timer"></div>
-                <div class="toy-content">
-                    <h3>Timer</h3>
-                    <p>Quick presets for tea (Black, Green, Chai, Oolong) and common durations. A notification you can see at a glance, a plus one minute button and instant restart. Keeps running after you close the app or reboot the phone.</p>
-                </div>
-            </div>
-
-            <div class="toy-section">
-                <div class="toy-image"><img src="images/nc_logo_trans.png" alt="Placeholder: stopwatch"></div>
-                <div class="toy-content">
-                    <h3>Stopwatch</h3>
-                    <p>Lap times, clear numbers, nothing else in the way.</p>
-                </div>
-            </div>
-
-            <div class="toy-section">
-                <div class="toy-image"><img src="images/nc_logo_trans.png" alt="Placeholder: clock"></div>
-                <div class="toy-content">
-                    <h3>Clock</h3>
-                    <p>One focused dark theme. Nothing inspired red on black.</p>
+        <section id="sounds" class="slide">
+            <div class="slide-media"><img src="images/mobileSounds.webp" alt="N Clock alarm sound library"></div>
+            <h2>More than 30 alarm sounds<span class="accent">.</span></h2>
+            <div class="shot-section">
+                <div class="phone-shot natural pop"><img src="images/Screenshot%202026-04-24%20203011.png" alt="N Clock sound picker with albums, cover art and preview playback"></div>
+                <div class="shot-content">
+                    <div class="eq" aria-hidden="true">
+                        <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+                    </div>
+                    <p>Albums, artists and cover art, like a music app + every system tone your phone already has.</p>
+                    <ul style="margin-bottom: 0; padding-left: 1.2rem;">
+                        <li>Preview any sound with one tap</li>
+                        <li>12 extra tracks as a free download pack</li>
+                        <li class="hide-mobile">Listen to featured artists on Spotify</li>
+                        <li class="hide-mobile">Always rings, even if a downloaded sound is missing</li>
+                    </ul>
                 </div>
             </div>
         </section>
 
-        <section id="privacy">
-            <h2>Privacy by design<span class="accent">.</span></h2>
-            <ul style="margin-bottom: 1.5rem; padding-left: 1.2rem;">
-                <li>No analytics, no crash reporters, no advertising IDs</li>
-                <li>No account, no sign in, no cloud sync</li>
-                <li>Works fully offline</li>
-                <li>Your data stays on your device</li>
-                <li>GDPR-compliant, built in Germany</li>
-            </ul>
-            <p>The only time the app talks to the internet is when Google Play checks the license for your one time purchase.</p>
+        <section id="timer" class="slide">
+            <div class="slide-media"><img src="images/mobileTimer.webp" alt="N Clock timer"></div>
+            <h2>Start in one tap<span class="accent">.</span></h2>
+            <div class="shot-section">
+                <div class="phone-shot natural pop"><img src="images/timer.png" alt="N Clock running Black Tea timer with progress ring"></div>
+                <div class="shot-content">
+                    <p class="demo-hero" id="slide-timer">03:00</p>
+                    <div class="demo-progress"><span id="slide-timer-bar"></span></div>
+                    <p>
+                        <button type="button" class="demo-btn" id="slide-timer-plus">+1 min</button>
+                        <button type="button" class="demo-btn" id="slide-timer-restart">Restart</button>
+                    </p>
+                    <p>Saved timer cards in Recent, Tea and Common.<span class="hide-mobile"> Keeps running after you close the app or reboot &mdash; and when time is up, a full screen alert offers exactly these buttons.</span></p>
+                </div>
+            </div>
         </section>
 
-        <section id="requirements">
-            <h2>Requirements<span class="accent">.</span></h2>
-            <ul style="margin-bottom: 1.5rem; padding-left: 1.2rem;">
-                <li>Android 12 or newer</li>
-            </ul>
-            <p>On the first launch, N Clock asks for three things:</p>
-            <ul style="margin-bottom: 1.5rem; padding-left: 1.2rem;">
-                <li>Notifications</li>
-                <li>Schedule exact alarms</li>
-                <li>Display over the lock screen, so the full screen alarm can appear</li>
-            </ul>
+        <section id="stopwatch" class="slide">
+            <div class="slide-media"><img src="images/mobileStopwatch.webp" alt="N Clock stopwatch"></div>
+            <h2>Stopwatch<span class="accent">.</span></h2>
+            <div class="shot-section">
+                <div class="phone-shot natural pop"><img src="images/Screenshot%202026-04-24%20203218.png" alt="N Clock stopwatch with lap recording"></div>
+                <div class="shot-content">
+                    <p class="demo-hero" id="slide-sw">00:00.00</p>
+                    <p>
+                        <button type="button" class="demo-btn" id="slide-sw-lap">Lap</button>
+                        <button type="button" class="demo-btn" id="slide-sw-toggle">Pause</button>
+                        <button type="button" class="demo-btn" id="slide-sw-reset">Reset</button>
+                    </p>
+                    <ul class="sw-laps" id="slide-sw-laps"></ul>
+                    <p>Laps and centiseconds. Keeps counting through app kills and reboots<span class="hide-mobile">, with its own home screen widget</span>.</p>
+                </div>
+            </div>
         </section>
 
-        <section id="languages">
-            <h2>Languages<span class="accent">.</span></h2>
-            <p>English. Deutsch. हिन्दी.</p>
+        <section id="glyph" class="slide">
+            <div class="slide-media"><img src="images/GlyphProgress.png" alt="Glyph progress lights on the back of a Nothing Phone"></div>
+            <h2>Glyph progress<span class="accent">.</span><sup class="footnote-mark">*</sup></h2>
+            <div class="shot-section">
+                <div class="phone-shot natural pop"><img src="images/N%20Clock%20Play%20Screenshots/Samsung%20Galaxy%20Tab%20S7%20Screenshot%206.png" alt="N Clock timer showing Glyph progress on a Nothing Phone"></div>
+                <div class="shot-content">
+                    <div class="glyph-demo" aria-hidden="true">
+                        <span class="glyph-dot"></span><span class="glyph-dot"></span><span class="glyph-dot"></span><span class="glyph-dot"></span><span class="glyph-dot"></span><span class="glyph-dot"></span><span class="glyph-dot"></span><span class="glyph-dot"></span><span class="glyph-dot"></span><span class="glyph-dot"></span><span class="glyph-dot"></span><span class="glyph-dot"></span>
+                    </div>
+                    <p>On a Nothing Phone, your running timer maps onto the Glyph lights. Face down, you read the time left without unlocking.</p>
+                </div>
+            </div>
         </section>
 
-        <section id="support">
-            <h2>Support<span class="accent">.</span></h2>
-            <p>Have a question first? Check the <a href="nclock_faq.html" class="accent">N Clock FAQ</a>.</p>
-            <p>Questions, bug reports or ideas are always welcome at <a href="mailto:contact@nostream.de" class="accent">contact@nostream.de</a>. Every message is read by a person. That person is the developer.</p>
-            <p>Made with care</p>
+        <section id="widgets" class="slide">
+            <h2>Six widgets<span class="accent">.</span></h2>
+            <p>Same dark, Nothing inspired red on black. They adapt to whatever size you give them.</p>
+            <div class="widget-grid">
+                <div class="widget-card pop">
+                    <h4>Big Clock</h4>
+                    <p>Large digital time for your home screen.</p>
+                    <p class="widget-demo" id="demo-clock">--:--:--</p>
+                </div>
+                <div class="widget-card pop">
+                    <h4>Analog Clock</h4>
+                    <p>A classic analog face.</p>
+                    <div class="demo-analog" aria-hidden="true">
+                        <div class="demo-hand demo-hand-h" id="demo-hand-h"></div>
+                        <div class="demo-hand demo-hand-m" id="demo-hand-m"></div>
+                        <div class="demo-hand demo-hand-s" id="demo-hand-s"></div>
+                    </div>
+                </div>
+                <div class="widget-card pop">
+                    <h4>Next Alarm</h4>
+                    <p>Your next scheduled alarm at a glance.</p>
+                    <p class="widget-demo widget-demo-small" id="demo-alarm">--</p>
+                </div>
+                <div class="widget-card pop">
+                    <h4>Live Timer</h4>
+                    <p>Your running countdown, updated live.</p>
+                    <p class="widget-demo" id="demo-timer">--:--</p>
+                </div>
+                <div class="widget-card pop">
+                    <h4>Quick Start Timer</h4>
+                    <p>Launch 1, 5, 10, 15, 25 or 45 minute timers with one tap.</p>
+                    <div>
+                        <button type="button" class="demo-btn" data-demo-minutes="1">1 min</button>
+                        <button type="button" class="demo-btn" data-demo-minutes="5">5 min</button>
+                        <button type="button" class="demo-btn" data-demo-minutes="10">10 min</button>
+                    </div>
+                </div>
+                <div class="widget-card pop">
+                    <h4>Stopwatch</h4>
+                    <p>Elapsed time with start and pause right on the widget.</p>
+                    <p class="widget-demo" id="demo-sw">00:00.00</p>
+                    <div>
+                        <button type="button" class="demo-btn" id="demo-sw-toggle">Start</button>
+                        <button type="button" class="demo-btn" id="demo-sw-reset">Reset</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="themes" class="slide">
+            <h2>Four themes<span class="accent">.</span></h2>
+            <p class="demo-hero" id="theme-name">Dark</p>
+            <p>This very page follows along. Watch it change, or freeze one by tapping it:</p>
+            <div class="theme-row">
+                <button type="button" class="theme-chip" data-theme-choice="dark"><span class="theme-swatch" style="background: #000;"></span>Dark</button>
+                <button type="button" class="theme-chip" data-theme-choice="light"><span class="theme-swatch" style="background: #fff;"></span>Light</button>
+                <button type="button" class="theme-chip" data-theme-choice="quintessential"><span class="theme-swatch" style="background: #ffc700;"></span>QuintEssential</button>
+                <button type="button" class="theme-chip" data-theme-choice="system"><span class="theme-swatch" style="background: linear-gradient(90deg, #000 50%, #fff 50%);"></span>System</button>
+            </div>
+            <p style="margin-top: 1.5rem;">System, Dark, Light &mdash; and QuintEssential, white with a yellow accent.<span class="hide-mobile"> The status and navigation bars follow along, with smooth slide animations between the tabs.</span> Localized in English, Deutsch and &#2361;&#2367;&#2344;&#2381;&#2342;&#2368;.</p>
+        </section>
+
+        <section id="get" class="slide get-slide">
+            <h2>Everything at a glance<span class="accent">.</span></h2>
+            <div class="overview-grid">
+                <a class="overview-tile ov-alarms pop" href="#wake-you-up">
+                    <div class="tile-media"><img src="images/AlarmTile.webp" alt="N Clock alarm list"></div>
+                    <h4>Alarms</h4>
+                </a>
+                <a class="overview-tile ov-sounds pop" href="#sounds">
+                    <div class="tile-media"><img src="images/SoundsTile.webp" alt="N Clock alarm sound library"></div>
+                    <h4>Sounds</h4>
+                </a>
+                <a class="overview-tile ov-timer pop" href="#timer">
+                    <div class="tile-media"><img src="images/TimerTile.webp" alt="N Clock running timer"></div>
+                    <h4>Timer</h4>
+                </a>
+                <a class="overview-tile ov-stopwatch pop" href="#stopwatch">
+                    <div class="tile-media"><img src="images/StopwatchTile.webp" alt="N Clock stopwatch with laps"></div>
+                    <h4>Stopwatch</h4>
+                </a>
+                <div class="ov-center">
+                    <img class="ov-logo" src="images/nc_logo_trans.png" alt="N Clock logo">
+                    <p class="overview-clock" id="overview-clock">--:--:--</p>
+                    <a href="https://play.google.com/store/apps/details?id=de.nostream.nclock" class="btn">Download now</a>
+                </div>
+                <a class="overview-tile ov-glyph pop" href="#glyph">
+                    <div class="tile-media"><img src="images/GlyphProgress.png" alt="Glyph progress lights on the back of a Nothing Phone"></div>
+                    <h4>Glyph<sup class="footnote-mark">*</sup></h4>
+                    <p>Timer on the lights</p>
+                </a>
+                <a class="overview-tile ov-widgets pop" href="#widgets">
+                    <div class="tile-media"><img src="images/WidgetTile.webp" alt="N Clock home screen widgets"></div>
+                    <h4>Widgets</h4>
+                </a>
+                <a class="overview-tile ov-themes pop" href="#themes">
+                    <div class="tile-media"><img src="images/ThemesTile.png" alt="N Clock in its four themes: System, Dark, Light and QuintEssential"></div>
+                    <h4>Four themes</h4>
+                    <p>Dark, Light, QuintEssential</p>
+                </a>
+                <div class="overview-tile ov-private pop">
+                    <h4>Private</h4>
+                    <p>Offline, no tracking</p>
+                </div>
+            </div>
+            <p style="margin-top: 1.5rem;">Android 12 or newer. Questions? Check the <a href="nclock_faq.html" class="accent">FAQ</a> or write to <a href="mailto:contact@nostream.de" class="accent">contact@nostream.de</a>.</p>
         </section>
     </main>
+
+    <div class="disclaimer">
+        <p>* Glyph progress requires a supported Nothing device with Nothing OS and Android 16 or later.</p>
+        <p>N Clock is an independent app by nostream dev and is not affiliated with, endorsed by or sponsored by Nothing Technology Limited. Nothing, Glyph Interface and Glyph Matrix are trademarks or registered trademarks of Nothing Technology Limited. Google Play and the Google Play logo are trademarks of Google LLC. Android is a trademark of Google LLC. All other product names, logos and brands are property of their respective owners.</p>
+        <p>Screenshots may show a pre-release version; final design and features are subject to change. Availability, pre-registration and pricing may vary by region and device. Live demos on this page are simulations for illustration. Some alarm sounds require an additional free download. Alarm reliability can be affected by device-specific battery optimization and manufacturer settings; see the setup guide. One-time purchase, no subscription; the license is verified through Google Play. For more information about how your data is handled, see the <a href="privacy_policy.html" class="accent">Privacy Policy</a>.</p>
+    </div>
 
     <div class="footer-copyright">
         <p>© 2026 Paul Gesekus.</p>
@@ -134,5 +259,393 @@
         <a href="impressum.html" class="accent" style="margin: 20px;">Imprint</a>
     </div>
 </div>
+<script>
+    document.documentElement.classList.add('js');
+    document.addEventListener('DOMContentLoaded', function () {
+        const pad = function (n) { return String(n).padStart(2, '0'); };
+        const body = document.body;
+
+        // --- Aufpopp-Animation: Elemente poppen gestaffelt auf, sobald sie sichtbar werden ---
+        const popEls = Array.prototype.slice.call(document.querySelectorAll('.pop'));
+        if ('IntersectionObserver' in window) {
+            const counts = new Map();
+            popEls.forEach(function (el) {
+                const section = el.closest('section') || body;
+                const i = counts.get(section) || 0;
+                el.style.transitionDelay = (i * 110) + 'ms';
+                counts.set(section, i + 1);
+            });
+            const popObs = new IntersectionObserver(function (entries) {
+                entries.forEach(function (entry) {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('pop-in');
+                        popObs.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.15 });
+            popEls.forEach(function (el) { popObs.observe(el); });
+        } else {
+            popEls.forEach(function (el) { el.classList.add('pop-in'); });
+        }
+
+        // --- Folien-Steuerung: Demos starten, wenn ihre Folie die Bildschirmmitte erreicht ---
+        const slideHandlers = {};
+        const slides = Array.prototype.slice.call(document.querySelectorAll('.slide'));
+        const dotLinks = Array.prototype.slice.call(document.querySelectorAll('.slide-dots a'));
+
+        function setActiveDot(id) {
+            dotLinks.forEach(function (a) {
+                a.classList.toggle('active', a.getAttribute('href') === '#' + id);
+            });
+        }
+
+        if ('IntersectionObserver' in window && slides.length) {
+            const bandObs = new IntersectionObserver(function (entries) {
+                entries.forEach(function (entry) {
+                    const handler = slideHandlers[entry.target.id];
+                    if (entry.isIntersecting) {
+                        setActiveDot(entry.target.id);
+                        if (handler && handler.enter) { handler.enter(); }
+                    } else if (handler && handler.exit) {
+                        handler.exit();
+                    }
+                });
+            }, { rootMargin: '-40% 0px -40% 0px', threshold: 0 });
+            slides.forEach(function (s) { bandObs.observe(s); });
+            setActiveDot('top');
+        }
+
+        // --- Uhren: Hero, Big-Clock-Widget, Analoguhr, Weckerzeiten ---
+        const heroClock = document.getElementById('hero-clock');
+        const overviewClock = document.getElementById('overview-clock');
+        const demoClock = document.getElementById('demo-clock');
+        const alarmWidget = document.getElementById('demo-alarm');
+        const alarmSlideIn = document.getElementById('alarm-demo-in');
+        const handH = document.getElementById('demo-hand-h');
+        const handM = document.getElementById('demo-hand-m');
+        const handS = document.getElementById('demo-hand-s');
+
+        function minutesUntil(hour, minute, now) {
+            const next = new Date(now);
+            next.setHours(hour, minute, 0, 0);
+            if (next <= now) { next.setDate(next.getDate() + 1); }
+            return Math.round((next - now) / 60000);
+        }
+
+        function tickClock() {
+            const now = new Date();
+            const t = pad(now.getHours()) + ':' + pad(now.getMinutes()) + ':' + pad(now.getSeconds());
+            if (heroClock) { heroClock.textContent = t; }
+            if (overviewClock) { overviewClock.textContent = t; }
+            if (demoClock) { demoClock.textContent = t; }
+            if (handH && handM && handS) {
+                const s = now.getSeconds();
+                const m = now.getMinutes();
+                const h = now.getHours() % 12;
+                handS.style.transform = 'rotate(' + (s * 6) + 'deg)';
+                handM.style.transform = 'rotate(' + (m * 6 + s * 0.1) + 'deg)';
+                handH.style.transform = 'rotate(' + (h * 30 + m * 0.5) + 'deg)';
+            }
+            if (alarmWidget) {
+                const mins = minutesUntil(7, 0, now);
+                alarmWidget.textContent = '07:00 · in ' + Math.floor(mins / 60) + ' h ' + (mins % 60) + ' min';
+            }
+            if (alarmSlideIn) {
+                const mins = minutesUntil(7, 30, now);
+                alarmSlideIn.textContent = 'Rings in ' + Math.floor(mins / 60) + ' h ' + (mins % 60) + ' min';
+            }
+        }
+        tickClock();
+        setInterval(tickClock, 1000);
+
+        // --- Timer-Folie: Countdown startet automatisch beim Erreichen der Folie ---
+        const slideTimerEl = document.getElementById('slide-timer');
+        const slideTimerBar = document.getElementById('slide-timer-bar');
+        if (slideTimerEl && slideTimerBar) {
+            let total = 180;
+            let left = 180;
+            let timerIv = null;
+
+            function renderTimer() {
+                slideTimerEl.textContent = pad(Math.floor(left / 60)) + ':' + pad(left % 60);
+                slideTimerBar.style.width = ((total - left) / total * 100) + '%';
+            }
+
+            function stopTimer() {
+                if (timerIv) { clearInterval(timerIv); timerIv = null; }
+            }
+
+            function finishTimer() {
+                stopTimer();
+                slideTimerEl.textContent = 'Done!';
+                slideTimerEl.classList.add('demo-done');
+                slideTimerBar.style.width = '100%';
+            }
+
+            function runTimer() {
+                stopTimer();
+                slideTimerEl.classList.remove('demo-done');
+                renderTimer();
+                timerIv = setInterval(function () {
+                    left -= 1;
+                    if (left <= 0) { left = 0; finishTimer(); } else { renderTimer(); }
+                }, 1000);
+            }
+
+            document.getElementById('slide-timer-plus').addEventListener('click', function () {
+                left += 60;
+                total = Math.max(total, left);
+                slideTimerEl.classList.remove('demo-done');
+                renderTimer();
+                if (!timerIv) { runTimer(); }
+            });
+
+            document.getElementById('slide-timer-restart').addEventListener('click', function () {
+                total = 180;
+                left = 180;
+                runTimer();
+            });
+
+            slideHandlers['timer'] = {
+                enter: function () { total = 180; left = 180; runTimer(); },
+                exit: function () { stopTimer(); }
+            };
+        }
+
+        // --- Stoppuhr-Folie: läuft automatisch los, mit Runden ---
+        const swEl = document.getElementById('slide-sw');
+        const swLaps = document.getElementById('slide-sw-laps');
+        const swLapBtn = document.getElementById('slide-sw-lap');
+        const swToggleBtn = document.getElementById('slide-sw-toggle');
+        const swResetBtn = document.getElementById('slide-sw-reset');
+        if (swEl && swLaps && swLapBtn && swToggleBtn && swResetBtn) {
+            let swBase = 0;
+            let swStart = null;
+            let swRaf = null;
+            let lapCount = 0;
+            let lastLap = 0;
+
+            function swElapsed() { return swBase + (swStart ? Date.now() - swStart : 0); }
+
+            function fmtSw(t) {
+                return pad(Math.floor(t / 60000)) + ':' + pad(Math.floor(t / 1000) % 60) + '.' + pad(Math.floor(t / 10) % 100);
+            }
+
+            function renderSw() { swEl.textContent = fmtSw(swElapsed()); }
+
+            function swLoop() {
+                renderSw();
+                swRaf = requestAnimationFrame(swLoop);
+            }
+
+            function swRun() {
+                if (!swStart) {
+                    swStart = Date.now();
+                    swLoop();
+                    swToggleBtn.textContent = 'Pause';
+                }
+            }
+
+            function swHalt() {
+                if (swStart) {
+                    swBase = swElapsed();
+                    swStart = null;
+                    cancelAnimationFrame(swRaf);
+                    renderSw();
+                    swToggleBtn.textContent = 'Start';
+                }
+            }
+
+            function swReset() {
+                swHalt();
+                swBase = 0;
+                lapCount = 0;
+                lastLap = 0;
+                swLaps.innerHTML = '';
+                renderSw();
+            }
+
+            swToggleBtn.addEventListener('click', function () {
+                if (swStart) { swHalt(); } else { swRun(); }
+            });
+
+            swResetBtn.addEventListener('click', swReset);
+
+            swLapBtn.addEventListener('click', function () {
+                const t = swElapsed();
+                lapCount += 1;
+                const li = document.createElement('li');
+                li.innerHTML = '<span>Lap ' + lapCount + '</span><span>+' + fmtSw(t - lastLap) + '</span>';
+                lastLap = t;
+                swLaps.insertBefore(li, swLaps.firstChild);
+                while (swLaps.children.length > 3) { swLaps.removeChild(swLaps.lastChild); }
+            });
+
+            slideHandlers['stopwatch'] = {
+                enter: function () { swReset(); swRun(); },
+                exit: function () { swHalt(); }
+            };
+        }
+
+        // --- Glyph-Folie: Lichtstreifen leert sich wie beim echten Timer ---
+        const glyphDemo = document.querySelector('.glyph-demo');
+        if (glyphDemo) {
+            const dots = Array.prototype.slice.call(glyphDemo.children);
+            let lit = dots.length;
+            let glyphIv = null;
+
+            function paintGlyph() {
+                dots.forEach(function (d, i) { d.classList.toggle('lit', i < lit); });
+            }
+
+            slideHandlers['glyph'] = {
+                enter: function () {
+                    lit = dots.length;
+                    paintGlyph();
+                    if (glyphIv) { clearInterval(glyphIv); }
+                    glyphIv = setInterval(function () {
+                        lit = lit > 0 ? lit - 1 : dots.length;
+                        paintGlyph();
+                    }, 550);
+                },
+                exit: function () {
+                    if (glyphIv) { clearInterval(glyphIv); glyphIv = null; }
+                }
+            };
+        }
+
+        // --- Themes-Folie: Themes wechseln automatisch durch, Tippen friert eins ein ---
+        const themeChips = Array.prototype.slice.call(document.querySelectorAll('.theme-chip'));
+        const themeNameEl = document.getElementById('theme-name');
+        if (themeChips.length) {
+            const themeOrder = ['dark', 'light', 'quintessential', 'system'];
+            const themeLabels = { dark: 'Dark', light: 'Light', quintessential: 'QuintEssential', system: 'System' };
+            let themeIdx = 0;
+            let themeIv = null;
+            let themeManual = false;
+
+            function resolveTheme(name) {
+                if (name === 'system') {
+                    return (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) ? 'light' : 'dark';
+                }
+                return name;
+            }
+
+            function applyTheme(name) {
+                const resolved = resolveTheme(name);
+                if (resolved === 'dark') {
+                    body.removeAttribute('data-theme');
+                } else {
+                    body.setAttribute('data-theme', resolved);
+                }
+                themeChips.forEach(function (chip) {
+                    chip.classList.toggle('active', chip.getAttribute('data-theme-choice') === name);
+                });
+                if (themeNameEl) { themeNameEl.textContent = themeLabels[name]; }
+            }
+
+            function stopThemeCycle() {
+                if (themeIv) { clearInterval(themeIv); themeIv = null; }
+            }
+
+            themeChips.forEach(function (chip) {
+                chip.addEventListener('click', function () {
+                    themeManual = true;
+                    stopThemeCycle();
+                    applyTheme(chip.getAttribute('data-theme-choice'));
+                });
+            });
+
+            slideHandlers['themes'] = {
+                enter: function () {
+                    if (themeManual) { return; }
+                    stopThemeCycle();
+                    themeIdx = 0;
+                    applyTheme(themeOrder[0]);
+                    themeIv = setInterval(function () {
+                        themeIdx = (themeIdx + 1) % themeOrder.length;
+                        applyTheme(themeOrder[themeIdx]);
+                    }, 2000);
+                },
+                exit: function () {
+                    stopThemeCycle();
+                    themeManual = false;
+                    applyTheme('dark');
+                    themeChips.forEach(function (chip) { chip.classList.remove('active'); });
+                }
+            };
+        }
+
+        // --- Widget-Karten: Quick Start füttert den Live-Timer ---
+        const miniTimerEl = document.getElementById('demo-timer');
+        if (miniTimerEl) {
+            let miniEnd = 0;
+            let miniIv = null;
+
+            function tickMiniTimer() {
+                const leftSec = Math.max(0, Math.round((miniEnd - Date.now()) / 1000));
+                miniTimerEl.textContent = pad(Math.floor(leftSec / 60)) + ':' + pad(leftSec % 60);
+                if (leftSec === 0 && miniIv) {
+                    clearInterval(miniIv);
+                    miniIv = null;
+                    miniTimerEl.textContent = 'Done!';
+                }
+            }
+
+            document.querySelectorAll('.demo-btn[data-demo-minutes]').forEach(function (btn) {
+                btn.addEventListener('click', function () {
+                    miniEnd = Date.now() + parseInt(btn.getAttribute('data-demo-minutes'), 10) * 60000;
+                    if (miniIv) { clearInterval(miniIv); }
+                    miniIv = setInterval(tickMiniTimer, 250);
+                    tickMiniTimer();
+                });
+            });
+        }
+
+        // --- Widget-Karten: Mini-Stoppuhr ---
+        const miniSwEl = document.getElementById('demo-sw');
+        const miniSwToggle = document.getElementById('demo-sw-toggle');
+        const miniSwReset = document.getElementById('demo-sw-reset');
+        if (miniSwEl && miniSwToggle && miniSwReset) {
+            let miniBase = 0;
+            let miniStart = null;
+            let miniRaf = null;
+
+            function miniElapsed() { return miniBase + (miniStart ? Date.now() - miniStart : 0); }
+
+            function renderMiniSw() {
+                const t = miniElapsed();
+                miniSwEl.textContent = pad(Math.floor(t / 60000)) + ':' + pad(Math.floor(t / 1000) % 60) + '.' + pad(Math.floor(t / 10) % 100);
+            }
+
+            function miniLoop() {
+                renderMiniSw();
+                miniRaf = requestAnimationFrame(miniLoop);
+            }
+
+            miniSwToggle.addEventListener('click', function () {
+                if (miniStart) {
+                    miniBase = miniElapsed();
+                    miniStart = null;
+                    cancelAnimationFrame(miniRaf);
+                    renderMiniSw();
+                    miniSwToggle.textContent = 'Start';
+                } else {
+                    miniStart = Date.now();
+                    miniLoop();
+                    miniSwToggle.textContent = 'Pause';
+                }
+            });
+
+            miniSwReset.addEventListener('click', function () {
+                if (miniStart) { cancelAnimationFrame(miniRaf); }
+                miniBase = 0;
+                miniStart = null;
+                renderMiniSw();
+                miniSwToggle.textContent = 'Start';
+            });
+        }
+    });
+</script>
 </body>
 </html>

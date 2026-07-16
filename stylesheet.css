@@ -2,8 +2,39 @@
     --bg-color: #000000;
     --fg-color: #ffffff;
     --accent-color: #ff0000;
+    --on-accent: #ffffff;
+    --surface: #1a1a1a;
     --dot-color: #1a1a1a;
+    --border-muted: #333333;
+    --text-muted: #cccccc;
+    --text-soft: #888888;
+    --panel-bg: rgba(0, 0, 0, 0.5);
+    --placeholder-bg: #0a0a0a;
     --font-main: 'Space Mono', monospace;
+}
+
+/* nclock.html: App-Farbtoken (Color.kt) statt Web-Rot */
+body.presentation {
+    --accent-color: #d71921;
+}
+
+/* Seiten-Themes — werden per JS als data-theme auf <body> gesetzt (nclock.html) */
+body[data-theme="light"],
+body[data-theme="quintessential"] {
+    --bg-color: #ffffff;
+    --fg-color: #000000;
+    --surface: #f2f2f2;
+    --dot-color: #e8e8e8;
+    --border-muted: #d9d9d9;
+    --text-muted: #444444;
+    --text-soft: #777777;
+    --panel-bg: rgba(255, 255, 255, 0.6);
+    --placeholder-bg: #f5f5f5;
+}
+
+body[data-theme="quintessential"] {
+    --accent-color: #ffc700;
+    --on-accent: #000000;
 }
 
 * {
@@ -19,6 +50,7 @@ body {
     color: var(--fg-color);
     font-family: var(--font-main);
     line-height: 1.6;
+    transition: background-color 0.5s ease, color 0.5s ease;
 }
 
 /* --- LOKALE SCHRIFTARTEN --- */
@@ -120,7 +152,7 @@ p {
 
 section {
     margin-bottom: 4rem;
-    border-top: 1px dashed #333;
+    border-top: 1px dashed var(--border-muted);
     padding-top: 2rem;
 }
 
@@ -294,11 +326,35 @@ footer {
     color: var(--accent-color);
 }
 
+/* Rechtliche Fußnoten (nclock.html) */
+.footnote-mark {
+    font-size: 0.5em;
+    color: var(--text-soft);
+    margin-left: 2px;
+}
+
+.disclaimer {
+    max-width: 900px;
+    margin: 3rem auto 1.5rem auto;
+    font-size: 0.65rem;
+    line-height: 1.7;
+    color: var(--text-soft);
+}
+
+/* Snap-Punkt am Seitenende, sonst ist die Fußnote per Mausrad nicht erreichbar */
+body.presentation .footer-copyright {
+    scroll-snap-align: end;
+}
+
+.disclaimer p {
+    margin-bottom: 0.5rem;
+}
+
 .footer-copyright {
     text-transform: uppercase;
-    border-top: 1px dashed #333;
+    border-top: 1px dashed var(--border-muted);
     padding-top: 1.5rem;
-    color: #888;
+    color: var(--text-soft);
 }
 
 /* Mobile Responsiveness */
@@ -467,6 +523,1021 @@ footer {
 @media (max-width: 768px) {
     .challenge-grid {
         grid-template-columns: 1fr 1fr;
+    }
+}
+
+/* --- NCLOCK: Screenshot Showcase --- */
+.shot-gallery {
+    display: flex;
+    gap: 1.25rem;
+    overflow-x: auto;
+    padding: 0.5rem 0.25rem 1.5rem 0.25rem;
+    margin: 2rem 0 3rem 0;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+}
+
+.shot-gallery::-webkit-scrollbar {
+    height: 6px;
+}
+
+.shot-gallery::-webkit-scrollbar-thumb {
+    background-color: var(--accent-color);
+}
+
+.shot-gallery .phone-shot {
+    flex: 0 0 auto;
+    width: 220px;
+    scroll-snap-align: center;
+}
+
+.phone-shot {
+    border: 2px solid var(--border-muted);
+    border-radius: 20px;
+    background-color: var(--surface);
+    padding: 6px;
+    transition: transform 0.3s ease, border-color 0.3s ease, background-color 0.5s ease;
+}
+
+.phone-shot img {
+    border-radius: 14px;
+}
+
+.phone-shot:hover {
+    transform: translateY(-5px);
+    border-color: var(--accent-color);
+}
+
+.phone-shot img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 9 / 16;
+    object-fit: cover;
+    object-position: top;
+}
+
+/* Paired feature rows that carry a real screenshot */
+.shot-section {
+    display: flex;
+    gap: 2.5rem;
+    align-items: center;
+    margin-bottom: 3rem;
+    border: 1px solid var(--border-muted);
+    padding: 2rem;
+    background-color: var(--panel-bg);
+    transition: background-color 0.5s ease, border-color 0.5s ease;
+}
+
+.shot-section:nth-of-type(even) {
+    flex-direction: row-reverse;
+}
+
+.shot-section .phone-shot {
+    flex: 0 0 240px;
+    width: 240px;
+}
+
+.shot-section .shot-content {
+    flex-grow: 1;
+}
+
+.shot-section .shot-content h3 {
+    border-bottom: 1px solid var(--fg-color);
+    padding-bottom: 0.5rem;
+    color: var(--fg-color);
+}
+
+.shot-section .shot-content p:last-child {
+    margin-bottom: 0;
+}
+
+@media (max-width: 768px) {
+    .shot-section, .shot-section:nth-of-type(even) {
+        flex-direction: column;
+        text-align: left;
+    }
+
+    .shot-section .phone-shot {
+        flex: 0 0 auto;
+        width: 220px;
+        margin: 0 auto;
+    }
+}
+
+/* --- NCLOCK: Platzhalter, Widget-Grid, Themes & Scroll-Animationen --- */
+.phone-shot.placeholder {
+    aspect-ratio: 9 / 16;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px dashed var(--border-muted);
+    background-color: var(--placeholder-bg);
+}
+
+.phone-shot.placeholder .placeholder-label {
+    text-transform: uppercase;
+    font-size: 0.7rem;
+    letter-spacing: 1px;
+    color: var(--text-soft);
+    text-align: center;
+    padding: 0 1rem;
+}
+
+.widget-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin: 2rem 0;
+}
+
+.widget-card {
+    border: 2px solid var(--border-muted);
+    border-radius: 20px;
+    padding: 16px;
+    background-color: var(--surface);
+    transition: transform 0.3s ease, border-color 0.3s ease, background-color 0.5s ease;
+}
+
+.widget-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--accent-color);
+}
+
+.widget-card h4 {
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+    color: var(--accent-color);
+}
+
+.widget-card p {
+    font-size: 0.85rem;
+    margin-bottom: 0;
+    color: var(--text-muted);
+}
+
+/* Live-Demos in den Widget-Karten */
+.widget-card p.widget-demo {
+    font-weight: 700;
+    font-size: 1.3rem;
+    letter-spacing: 1px;
+    color: var(--fg-color);
+    margin-top: 0.75rem;
+    font-variant-numeric: tabular-nums;
+}
+
+.widget-card p.widget-demo-small {
+    font-size: 0.95rem;
+}
+
+.demo-btn {
+    font-family: var(--font-main);
+    background: none;
+    border: 2px solid var(--accent-color);
+    border-radius: 20px;
+    color: var(--accent-color);
+    padding: 4px 12px;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    cursor: pointer;
+    margin: 0.75rem 0.4rem 0 0;
+    transition: all 0.3s ease;
+}
+
+.demo-btn:hover {
+    background-color: var(--accent-color);
+    color: var(--on-accent);
+}
+
+.demo-analog {
+    position: relative;
+    width: 64px;
+    height: 64px;
+    border: 2px solid var(--border-muted);
+    border-radius: 50%;
+    background-color: var(--bg-color);
+    margin-top: 0.75rem;
+}
+
+.demo-hand {
+    position: absolute;
+    left: 50%;
+    bottom: 50%;
+    transform-origin: 50% 100%;
+    background-color: var(--fg-color);
+}
+
+.demo-hand-h { width: 2px; height: 16px; margin-left: -1px; }
+.demo-hand-m { width: 2px; height: 22px; margin-left: -1px; }
+.demo-hand-s { width: 1px; height: 26px; background-color: var(--accent-color); }
+
+.theme-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.theme-chip {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    border: 2px solid var(--border-muted);
+    border-radius: 20px;
+    background-color: var(--surface);
+    padding: 0.5rem 1rem;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    font-family: var(--font-main);
+    color: var(--fg-color);
+    cursor: pointer;
+    transition: transform 0.3s ease, border-color 0.3s ease, color 0.3s ease, background-color 0.5s ease;
+}
+
+.theme-chip:hover {
+    transform: translateY(-3px);
+    border-color: var(--accent-color);
+}
+
+.theme-chip.active {
+    border-color: var(--accent-color);
+    color: var(--accent-color);
+}
+
+.theme-swatch {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    border: 1px solid #555;
+    flex-shrink: 0;
+}
+
+/* Sanfte Einblend-Animation beim Scrollen (nur mit JS aktiv) */
+.js .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.js .reveal.visible {
+    opacity: 1;
+    transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .js .reveal {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+
+    body,
+    .shot-section,
+    .phone-shot,
+    .widget-card {
+        transition: none;
+    }
+}
+
+@media (max-width: 768px) {
+    .highlights {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1.5rem;
+    }
+
+    .widget-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+/* --- NCLOCK: Präsentationsmodus — eine Folie pro Feature --- */
+html:has(body.presentation) {
+    scroll-snap-type: y mandatory;
+    scroll-behavior: smooth;
+}
+
+body.presentation .container {
+    max-width: 1280px;
+}
+
+body.presentation header {
+    position: sticky;
+    top: 0;
+    z-index: 30;
+    background-color: var(--bg-color);
+    margin-bottom: 0;
+    padding-top: 1rem;
+    transition: background-color 0.5s ease;
+}
+
+body.presentation .slide {
+    min-height: calc(100svh - 5rem);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    scroll-snap-align: start;
+    scroll-margin-top: 4.5rem;
+    border-top: none;
+    margin-bottom: 0;
+    padding: 2rem 0;
+    position: relative;
+}
+
+body.presentation .slide h2 {
+    font-size: clamp(2rem, 4.5vw, 3.4rem);
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+}
+
+body.presentation .shot-section {
+    border: none;
+    background: none;
+    padding: 0;
+    gap: 3rem;
+    margin-bottom: 0;
+}
+
+body.presentation .shot-section > .phone-shot {
+    flex: 0 0 300px;
+    width: 300px;
+}
+
+body.presentation .shot-gallery .phone-shot {
+    width: 250px;
+}
+
+/* Quadratische Feature-Bilder — nur auf Mobil sichtbar, oberhalb der Überschrift */
+.slide-media {
+    display: none;
+}
+
+.phone-shot.natural img {
+    aspect-ratio: auto;
+    height: auto;
+}
+
+.shot-pair {
+    display: flex;
+    gap: 1.25rem;
+    align-items: flex-start;
+    flex: 0 0 auto;
+}
+
+body.presentation .shot-pair .phone-shot {
+    flex: 0 0 auto;
+    width: 230px;
+}
+
+.shot-pair .phone-shot:nth-child(2) {
+    margin-top: 2.5rem;
+}
+
+body.presentation .btn {
+    border-width: 2px;
+    border-radius: 20px;
+}
+
+body.presentation .btn:hover {
+    color: var(--on-accent);
+}
+
+/* Hero-Folie */
+.hero-slide {
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-brand {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.hero-slide h1 {
+    font-size: clamp(3rem, 7vw, 5rem);
+    margin-bottom: 0;
+}
+
+.hero-logo {
+    width: clamp(110px, 15vw, 180px);
+    animation: heroFloat 6s ease-in-out infinite;
+}
+
+.hero-clock {
+    font-size: clamp(3rem, 10vw, 6.5rem);
+    font-weight: 700;
+    letter-spacing: 4px;
+    font-variant-numeric: tabular-nums;
+    line-height: 1;
+    margin: 0.5rem 0 1.5rem 0;
+}
+
+.hero-tagline {
+    color: var(--text-muted);
+    max-width: 36rem;
+    margin-bottom: 1rem;
+}
+
+.scroll-hint {
+    position: absolute;
+    bottom: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--text-soft);
+    animation: hintBounce 2s ease-in-out infinite;
+}
+
+@keyframes heroFloat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+@keyframes hintBounce {
+    0%, 100% { transform: translate(-50%, 0); }
+    50% { transform: translate(-50%, 8px); }
+}
+
+/* Große Live-Demos auf den Folien */
+.demo-hero {
+    font-size: clamp(2.6rem, 7vw, 4.2rem);
+    font-weight: 700;
+    letter-spacing: 2px;
+    font-variant-numeric: tabular-nums;
+    line-height: 1.05;
+    margin-bottom: 0.5rem;
+}
+
+.demo-hero.demo-done {
+    color: var(--accent-color);
+    animation: pulseText 0.9s ease-in-out infinite;
+}
+
+@keyframes pulseText {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.45; }
+}
+
+.demo-sub {
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+    color: var(--accent-color);
+    margin-bottom: 0.75rem;
+}
+
+.demo-progress {
+    height: 6px;
+    max-width: 420px;
+    background-color: var(--surface);
+    border-radius: 3px;
+    margin: 1rem 0 1.25rem 0;
+}
+
+.demo-progress span {
+    display: block;
+    height: 100%;
+    width: 0;
+    background-color: var(--accent-color);
+    border-radius: 3px;
+    transition: width 0.9s linear;
+}
+
+/* Equalizer-Animation (Sounds-Folie) */
+.eq {
+    display: flex;
+    gap: 6px;
+    align-items: flex-end;
+    height: 54px;
+    margin: 1.25rem 0;
+}
+
+.eq span {
+    width: 9px;
+    height: 100%;
+    background-color: var(--accent-color);
+    transform-origin: bottom;
+    animation: eqBounce 1.2s ease-in-out infinite;
+}
+
+.eq span:nth-child(2) { animation-delay: 0.15s; }
+.eq span:nth-child(3) { animation-delay: 0.3s; }
+.eq span:nth-child(4) { animation-delay: 0.45s; }
+.eq span:nth-child(5) { animation-delay: 0.6s; }
+.eq span:nth-child(6) { animation-delay: 0.75s; }
+.eq span:nth-child(7) { animation-delay: 0.9s; }
+.eq span:nth-child(8) { animation-delay: 1.05s; }
+
+@keyframes eqBounce {
+    0%, 100% { transform: scaleY(0.25); }
+    50% { transform: scaleY(1); }
+}
+
+/* Glyph-Streifen (Glyph-Folie) */
+.glyph-demo {
+    display: flex;
+    gap: 10px;
+    margin: 1.5rem 0;
+}
+
+.glyph-dot {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background-color: var(--border-muted);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.glyph-dot.lit {
+    background-color: var(--accent-color);
+    box-shadow: 0 0 10px var(--accent-color);
+}
+
+/* Runden-Liste (Stoppuhr-Folie) */
+.sw-laps {
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0 0 0;
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    font-variant-numeric: tabular-nums;
+}
+
+.sw-laps li {
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+    max-width: 280px;
+    border-top: 1px dashed var(--border-muted);
+    padding: 0.35rem 0;
+}
+
+/* Privacy-Folie */
+.privacy-list {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 1.5rem;
+    font-size: clamp(1.05rem, 2.4vw, 1.5rem);
+    font-weight: 700;
+    text-transform: uppercase;
+    line-height: 2;
+}
+
+.privacy-list li::before {
+    content: '●';
+    color: var(--accent-color);
+    font-size: 0.6em;
+    vertical-align: middle;
+    margin-right: 0.75rem;
+}
+
+/* Abschluss-Folie: Übersicht mit Uhr in der Mitte und Feature-Kacheln drumherum */
+.get-slide {
+    text-align: center;
+    align-items: center;
+}
+
+/* Bento-Grid: unterschiedlich große Kacheln, Uhr + Download in der Mitte */
+.overview-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1.5fr 1fr;
+    grid-template-areas:
+        "alarms    sounds    center  glyph"
+        "timer     stopwatch center  glyph"
+        "themes    themes    center  widgets"
+        "themes    themes    center  private";
+    gap: 16px;
+    width: 100%;
+    max-width: 1220px;
+    margin: 0 auto;
+}
+
+.ov-alarms { grid-area: alarms; }
+.ov-sounds { grid-area: sounds; }
+.ov-timer { grid-area: timer; }
+.ov-stopwatch { grid-area: stopwatch; }
+.ov-center { grid-area: center; }
+.ov-glyph { grid-area: glyph; }
+.ov-widgets { grid-area: widgets; }
+.ov-themes { grid-area: themes; }
+.ov-private { grid-area: private; }
+
+.overview-tile {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    gap: 10px;
+    min-height: 160px;
+    border: 2px solid var(--border-muted);
+    border-radius: 20px;
+    background-color: var(--surface);
+    padding: 16px;
+    text-decoration: none;
+    text-align: center;
+    color: var(--fg-color);
+    transition: transform 0.3s ease, border-color 0.3s ease, background-color 0.5s ease;
+}
+
+.overview-tile:hover {
+    transform: translateY(-4px);
+    border-color: var(--accent-color);
+}
+
+.overview-tile h4 {
+    text-transform: uppercase;
+    font-size: 1.05rem;
+    color: var(--fg-color);
+    margin-bottom: 0;
+}
+
+.overview-tile p {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-bottom: 0;
+}
+
+.ov-glyph h4,
+.ov-themes h4 {
+    font-size: 1.25rem;
+}
+
+/* Platzhalter für Bilder — <img> hineinlegen, füllt automatisch */
+.tile-media {
+    flex: 1 1 auto;
+    min-height: 104px;
+    border: 1px dashed var(--border-muted);
+    border-radius: 12px;
+    background-color: var(--bg-color);
+    overflow: hidden;
+    transition: background-color 0.5s ease, border-color 0.5s ease;
+}
+
+.tile-media img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.ov-private {
+    justify-content: center;
+}
+
+/* Die Mitte: Uhr + Download direkt auf dem Seitenhintergrund, ohne Kachel */
+.ov-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    padding: 1rem;
+}
+
+.ov-logo {
+    width: clamp(64px, 7vw, 90px);
+}
+
+.overview-clock {
+    font-size: clamp(2.2rem, 4.5vw, 3.6rem);
+    font-weight: 700;
+    letter-spacing: 2px;
+    font-variant-numeric: tabular-nums;
+    margin-bottom: 0;
+    line-height: 1.1;
+}
+
+.ov-center .btn {
+    font-size: 1rem;
+    padding: 0.85rem 1.6rem;
+    margin-top: 0;
+    white-space: nowrap;
+}
+
+.promo-banner {
+    display: block;
+    width: 100%;
+    max-width: 420px;
+    margin: 0 auto 1.5rem auto;
+    border: 2px solid var(--border-muted);
+    border-radius: 20px;
+}
+
+/* Aufpopp-Animation (Widgets & Screenshots) */
+.js .pop {
+    opacity: 0;
+    transform: translateY(40px) scale(0.92);
+    transition: opacity 0.5s ease, transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.js .pop.pop-in {
+    opacity: 1;
+    transform: none;
+}
+
+/* Folien-Navigation (Punkte rechts) */
+.slide-dots {
+    position: fixed;
+    right: 1.1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+    z-index: 40;
+}
+
+.slide-dots a {
+    display: block;
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    border: 1px solid var(--text-soft);
+    transition: all 0.3s ease;
+}
+
+.slide-dots a:hover {
+    border-color: var(--accent-color);
+}
+
+.slide-dots a.active {
+    background-color: var(--accent-color);
+    border-color: var(--accent-color);
+    transform: scale(1.35);
+}
+
+@media (max-width: 900px) {
+    .slide-dots {
+        display: none;
+    }
+}
+
+/* Mobil: kompakter Präsentationsmodus — jede Folie passt auf einen Screen */
+@media (max-width: 768px) {
+    .hide-mobile {
+        display: none;
+    }
+
+    body.presentation .container {
+        padding: 1.25rem;
+    }
+
+    body.presentation header {
+        position: static;
+    }
+
+    /* Struktur: Überschrift oben, Inhalt füllt den Rest der Folie */
+    body.presentation .slide {
+        min-height: 100svh;
+        scroll-margin-top: 0;
+        padding: 2.5rem 0 1.5rem 0;
+        justify-content: flex-start;
+        gap: 1rem;
+    }
+
+    body.presentation .slide.hero-slide {
+        justify-content: center;
+    }
+
+    body.presentation .slide h2 {
+        margin-bottom: 0.5rem;
+    }
+
+    body.presentation .shot-section {
+        flex: 1 1 auto;
+        justify-content: space-evenly;
+        gap: 1rem;
+    }
+
+    body.presentation .slide h2 {
+        font-size: 1.5rem;
+        margin-bottom: 0.75rem;
+    }
+
+    body.presentation .slide p {
+        font-size: 0.9rem;
+        margin-bottom: 0.75rem;
+    }
+
+    body.presentation .slide ul {
+        font-size: 0.85rem;
+    }
+
+    /* Telefon-Screenshots nur auf Desktop — mobil übernimmt das quadratische Bild */
+    body.presentation .shot-section .phone-shot {
+        display: none;
+    }
+
+    .slide-media {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex: 0 0 auto;
+        width: min(82vw, 42svh);
+        aspect-ratio: 1 / 1;
+        margin: 0 auto;
+    }
+
+    .slide-media img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+
+    /* Platzhalter-Rahmen verschwindet, sobald ein <img> drin liegt */
+    .slide-media:not(:has(img)) {
+        border: 1px dashed var(--border-muted);
+        border-radius: 20px;
+    }
+
+    .slide-media .placeholder-label {
+        text-transform: uppercase;
+        font-size: 0.7rem;
+        letter-spacing: 1px;
+        color: var(--text-soft);
+        text-align: center;
+        padding: 0 1rem;
+    }
+
+    /* Inhalt unter dem Bild füllt den Rest der Folie */
+    body.presentation .shot-section .shot-content {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        flex: 1 1 auto;
+    }
+
+    body.presentation .shot-gallery .phone-shot {
+        width: 170px;
+    }
+
+    .hero-brand {
+        gap: 1rem;
+        margin-bottom: 0.75rem;
+    }
+
+    .hero-logo {
+        width: 96px;
+    }
+
+    .hero-slide h1 {
+        font-size: 2.2rem;
+    }
+
+    body.presentation .slide p.hero-clock {
+        font-size: 2.8rem;
+        letter-spacing: 2px;
+    }
+
+    body.presentation .slide p.demo-hero {
+        font-size: 2rem;
+    }
+
+    .eq {
+        height: 36px;
+        margin: 0.75rem 0;
+    }
+
+    .glyph-dot {
+        width: 12px;
+        height: 12px;
+    }
+
+    /* Widget-Karten: nur Titel + Live-Demo, Beschreibungen ausblenden */
+    .widget-grid {
+        gap: 12px;
+        margin: 1rem 0;
+    }
+
+    .widget-card {
+        padding: 12px 16px;
+    }
+
+    .widget-card p:not(.widget-demo) {
+        display: none;
+    }
+
+    .widget-card h4 {
+        font-size: 0.75rem;
+        margin-bottom: 0.25rem;
+    }
+
+    .widget-card p.widget-demo {
+        font-size: 1rem;
+        margin-top: 0.4rem;
+    }
+
+    .demo-btn {
+        padding: 3px 8px;
+        font-size: 0.65rem;
+        margin: 0.4rem 0.3rem 0 0;
+    }
+
+    .demo-analog {
+        width: 48px;
+        height: 48px;
+        margin-top: 0.4rem;
+    }
+
+    .demo-hand-h { height: 12px; }
+    .demo-hand-m { height: 17px; }
+    .demo-hand-s { height: 20px; }
+
+    .sw-laps {
+        font-size: 0.8rem;
+    }
+
+    .sw-laps li:nth-child(n+3) {
+        display: none;
+    }
+
+    .privacy-list {
+        font-size: 0.95rem;
+        line-height: 1.9;
+    }
+
+    .promo-banner {
+        max-width: 260px;
+    }
+
+    /* Übersichts-Folie: Bento wird zweispaltig, Uhr-Kachel oben */
+    .overview-grid {
+        gap: 8px;
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas:
+            "center center"
+            "alarms sounds"
+            "timer  stopwatch"
+            "glyph  widgets"
+            "themes private";
+    }
+
+    .overview-tile {
+        min-height: 0;
+        padding: 12px;
+        border-radius: 16px;
+        gap: 8px;
+    }
+
+    .overview-tile h4 {
+        font-size: 0.8rem;
+    }
+
+    .overview-tile p {
+        display: none;
+    }
+
+    .ov-glyph h4,
+    .ov-themes h4 {
+        font-size: 0.8rem;
+    }
+
+    .tile-media {
+        min-height: 60px;
+    }
+
+    .ov-center {
+        gap: 0.75rem;
+        padding: 1.25rem 0;
+    }
+
+    .ov-logo {
+        width: 44px;
+    }
+
+    body.presentation .slide p.overview-clock {
+        font-size: 2.2rem;
+        margin-bottom: 0;
+    }
+
+    .ov-center .btn {
+        font-size: 0.75rem;
+        padding: 0.6rem 1.1rem;
+        margin-top: 0;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .js .pop {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+
+    .hero-logo,
+    .scroll-hint,
+    .eq span,
+    .demo-hero.demo-done {
+        animation: none;
+    }
+
+    html:has(body.presentation) {
+        scroll-behavior: auto;
     }
 }
 

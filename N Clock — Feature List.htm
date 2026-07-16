@@ -1,0 +1,100 @@
+
+de.nostream.nclock · Android 12+
+N Clock CB 0.9
+
+A clock app inspired by the Nothing design language — alarms, timers, stopwatch, and home-screen widgets built for one thing above all: reliability. Single-activity Jetpack Compose, no DI framework, no destructive migrations, works on every Android version since 12.
+5
+Main screens
+6
+Home widgets
+19+
+Alarm sounds
+4
+Themes
+3
+Languages
+Alarms
+
+Full alarm clock with exact scheduling that survives reboots, doze, and process death.
+
+Create, edit, delete alarms with custom labels and per-alarm ringtone.
+Recurrence: one-time, daily, or any custom set of weekdays — next-occurrence logic computed per alarm.
+Exact scheduling via AlarmManager.setAlarmClock(), immune to battery optimization deferral.
+Full-screen alarm UI over the lock screen with Stop and Snooze (5 minutes).
+10-minute auto-timeout so a missed alarm never rings forever.
+Reschedules after reboot — handles both BOOT_COMPLETED and LOCKED_BOOT_COMPLETED, so alarms are re-armed even before first unlock.
+Device-protected storage for the alarm database: alarms fire even if the phone restarted overnight and was never unlocked.
+Permission gate before saving: checks exact-alarm permission and battery optimization, with a deliberate hold-to-continue escape hatch and a visible warning when notifications are disabled.
+Foreground service playback with wake lock — ringtone keeps playing with the app swiped away.
+
+Timer
+
+A saved-timer library rather than a single countdown — state lives outside the UI process.
+
+Saved timers with categories — Recent, Tea, and Common — shown as tappable cards with live progress.
+Custom timer dialog with hour/minute/second pickers, labels, and quick preset chips.
+Foreground countdown service with a persistent notification updated every second.
+Survives process death: timer state is persisted to DataStore and recovered by the service on restart.
+Full-screen finish alert with Restart, +1 minute, and Stop actions.
+Active-timer header in the app showing the running countdown with one-tap stop.
+
+Stopwatch
+
+Start, pause, reset with centisecond display and lap recording.
+Wall-clock based timing persisted to DataStore — the stopwatch keeps counting through app kills and reboots.
+Companion home-screen widget with responsive layouts and direct start/pause control.
+
+Home / Clock screen
+
+Digital and analog clock rendered live in Compose.
+Feature shortcuts — quick tiles into Timer, Alarm, Stopwatch, and Settings.
+Widget discovery row: browse all six widgets in-app and pin them to the launcher with one tap (requestPinAppWidget, with graceful fallback on unsupported launchers).
+News card — embedded WebView surfacing N Clock news, tap-through to the full page.
+
+Home-screen widgets
+Widget	What it shows
+Big Clock	Large digital time for the home screen.
+Analog Clock	Classic analog face.
+Next Alarm	Your next scheduled alarm at a glance.
+Live Timer	Running countdown, updated live.
+Quick Start Timer	One-tap timer start, responsive layout.
+Stopwatch	Elapsed time with start/pause from the widget.
+Sound library
+
+Alarm sounds organized like a music app — albums, artists, cover art — plus everything the device already ships with.
+
+Album-based picker with cover art and in-place preview playback before choosing.
+Built-in catalog: NC Melodic and NC Alert (N Clock), ccr singles (ccr_beats), daversity topic (Daversity) — 19 curated tracks.
+On-demand ringtone pack via Play Asset Delivery: 12 tracks download only when wanted, with a banner showing progress, waiting-for-Wi-Fi, and failure states.
+System sounds album: the device's stock alarm tones appear as one extra album, loaded in the background.
+Spotify artist links — "Listen on Spotify" for featured artists.
+Guaranteed fallback: if a chosen track can't resolve (pack not downloaded), the alarm still rings with a bundled default.
+
+Themes & design
+
+Four theme modes: System, Dark, Light, and QuintEssential — white with a yellow accent.
+Nothing design language: dot-matrix-inspired type, red accent, 20 dp rounded containers.
+Theme-aware system bars — status and navigation bars follow the selected mode.
+
+Animated navigation: directional slide transitions between the five bottom-nav tabs.
+Localized in English, German, and Hindi.
+Legal pages in-app: Terms of Service, Privacy Policy, and Imprint.
+
+Onboarding & reliability
+
+Every error can have severe consequences — the first-run flow exists to make alarms un-killable.
+
+Four-step onboarding: Welcome → Notification permission → Background/battery permission → Reliability tips.
+Runtime permission handling for notifications (Android 13+), exact alarms (Android 12+), and full-screen intents (Android 14+).
+Reliability tips screen explaining battery optimization and OEM-specific pitfalls.
+Smart in-app review: Play review prompt gated on real usage — app opens, dismissed alarms and completed timers as satisfaction signals, capped asks, and cooldown after "Not now".
+
+Under the hood
+Area	Implementation
+Architecture	Single-activity MVVM, Jetpack Compose, manual dependency wiring — no DI framework.
+Persistence	Room v4 with explicit migrations (never destructive) in device-protected storage; DataStore for preferences and timer/stopwatch state.
+Services	Foreground AlarmService and TimerService with redelivered intents, so audio and countdowns outlive the UI.
+Notifications	Dedicated channels: alarm (high), running timer (low, persistent), timer finished (max, full-screen intent).
+Compatibility	Min SDK 31 (Android 12) through target SDK 35 — tested behavior on every version in between.
+Delivery	Play Asset Delivery for on-demand ringtones; Play In-App Review.
+N Clock · nostream Feature list · CB 0.9 · 2026
