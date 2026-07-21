@@ -1277,6 +1277,70 @@ body.presentation .btn:hover {
     }
 }
 
+/* Early-Bird-Ecke unten rechts (nclock.html) — wird per JS nach dem 10. August entfernt */
+.early-bird-corner {
+    position: fixed;
+    right: 1.1rem;
+    bottom: 1.1rem;
+    z-index: 40;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    max-width: 270px;
+    padding: 0.8rem 1rem;
+    border-radius: 14px;
+    background-color: #000000;
+    border: 1px solid #0FD5FF;
+    color: #0FD5FF;
+    text-decoration: none;
+    font-size: 0.72rem;
+    line-height: 1.45;
+    box-shadow: 0 0 18px rgba(15, 213, 255, 0.25);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.early-bird-corner:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 0 28px rgba(15, 213, 255, 0.5);
+}
+
+.early-bird-corner strong {
+    display: block;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.82rem;
+    margin-bottom: 0.15rem;
+}
+
+.eb-dot {
+    flex-shrink: 0;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: #0FD5FF;
+    box-shadow: 0 0 10px rgba(15, 213, 255, 0.8);
+    animation: eb-pulse 1.6s ease-in-out infinite;
+}
+
+@keyframes eb-pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.35; }
+}
+
+@media (max-width: 768px) {
+    .early-bird-corner {
+        right: 0.75rem;
+        bottom: 0.75rem;
+        max-width: 210px;
+        padding: 0.6rem 0.8rem;
+        font-size: 0.65rem;
+    }
+
+    .early-bird-corner strong {
+        font-size: 0.72rem;
+    }
+}
+
 /* Mobil: kompakter Präsentationsmodus — jede Folie passt auf einen Screen */
 @media (max-width: 768px) {
     .hide-mobile {

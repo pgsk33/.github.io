@@ -34,6 +34,14 @@
         <a href="#get" title="Overview"></a>
     </nav>
 
+    <a class="early-bird-corner" id="early-bird-corner" href="https://play.google.com/store/apps/details?id=de.nostream.nclock">
+        <span class="eb-dot" aria-hidden="true"></span>
+        <span>
+            <strong>Early Bird theme</strong>
+            Open the app until 10 August and get it — exclusively.
+        </span>
+    </a>
+
     <main>
         <section id="top" class="slide hero-slide">
             <div class="hero-brand">
@@ -43,7 +51,7 @@
             <p class="hero-tagline">Built for Nothing. Just not by Nothing.</p>
             <p class="hero-clock" id="hero-clock">--:--:--</p>
             <p class="hero-tagline">Alarms, timer and stopwatch. No ads. No tracking. Buy it once, it stays yours.</p>
-            <a href="https://play.google.com/store/apps/details?id=de.nostream.nclock" class="btn" style="font-size: 1.1rem; padding: 0.9rem 1.8rem;">Pre-register on Google Play</a>
+            <a href="https://play.google.com/store/apps/details?id=de.nostream.nclock" class="btn" style="font-size: 1.1rem; padding: 0.9rem 1.8rem;">Download on Google Play</a>
             <div class="scroll-hint">Scroll &#9660;</div>
         </section>
 
@@ -250,7 +258,7 @@
     <div class="disclaimer">
         <p>* Glyph progress requires a supported Nothing device with Nothing OS and Android 16 or later.</p>
         <p>N Clock is an independent app by nostream dev and is not affiliated with, endorsed by or sponsored by Nothing Technology Limited. Nothing, Glyph Interface and Glyph Matrix are trademarks or registered trademarks of Nothing Technology Limited. Google Play and the Google Play logo are trademarks of Google LLC. Android is a trademark of Google LLC. All other product names, logos and brands are property of their respective owners.</p>
-        <p>Screenshots may show a pre-release version; final design and features are subject to change. Availability, pre-registration and pricing may vary by region and device. Live demos on this page are simulations for illustration. Some alarm sounds require an additional free download. Alarm reliability can be affected by device-specific battery optimization and manufacturer settings; see the setup guide. One-time purchase, no subscription; the license is verified through Google Play. For more information about how your data is handled, see the <a href="privacy_policy.html" class="accent">Privacy Policy</a>.</p>
+        <p>Screenshots may show a pre-release version; final design and features are subject to change. Availability and pricing may vary by region and device. Live demos on this page are simulations for illustration. Some alarm sounds require an additional free download. Alarm reliability can be affected by device-specific battery optimization and manufacturer settings; see the setup guide. One-time purchase, no subscription; the license is verified through Google Play. For more information about how your data is handled, see the <a href="privacy_policy.html" class="accent">Privacy Policy</a>.</p>
     </div>
 
     <div class="footer-copyright">
@@ -264,6 +272,12 @@
     document.addEventListener('DOMContentLoaded', function () {
         const pad = function (n) { return String(n).padStart(2, '0'); };
         const body = document.body;
+
+        // --- Early-Bird-Ecke: nach Aktionsende (10. August) ausblenden ---
+        const earlyBird = document.getElementById('early-bird-corner');
+        if (earlyBird && new Date() > new Date(2026, 7, 10, 23, 59, 59)) {
+            earlyBird.remove();
+        }
 
         // --- Aufpopp-Animation: Elemente poppen gestaffelt auf, sobald sie sichtbar werden ---
         const popEls = Array.prototype.slice.call(document.querySelectorAll('.pop'));

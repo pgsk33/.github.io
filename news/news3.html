@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>N Clock: Pre-Register now! | nostream dev</title>
+    <title>N Clock is Out Now! | nostream dev</title>
     <link rel="canonical" href="https://nostream.tech/news/news3.html">
     <link rel="stylesheet" href="../stylesheet.css">
     <link rel="stylesheet" href="../mobile_view.css">
@@ -23,18 +23,30 @@
 
 
     <main>
+      <!-- TEMPORARY: Dot Hub Pro notice, shown 2026-07-20 → 2026-07-23 only.
+           Restore the ORIGINAL card below after July 23. -->
+      <div id="app-news-card" class="app-news-card" style="display: none;">
+        <img src="../images/dot_hub_logo_trans.png" alt="Dot Hub" class="app-preview-image" style="object-fit: contain; object-position: center;">
+        <div class="app-card-content">
+          <h2 style="color: #ff8a00;">Pro Purchases Paused</h2>
+          <h3 style="font-size: 0.85rem; font-weight: 400; color: #cccccc; margin: 0.5rem 0 0 0; line-height: 1.4;">July 20&ndash;23 &middot; backend maintenance</h3>
+        </div>
+      </div>
+      <!-- ORIGINAL:
       <div id="app-news-card" class="app-news-card" style="display: none;">
         <img src="../images/nc_logo_trans.png" alt="N Clock Preview" class="app-preview-image">
         <div class="app-card-content">
-          <h2>N Clock: Pre-Register now!</h2>
+          <h2>N Clock is Out Now!</h2>
         </div>
       </div>
+      -->
 
-        <span class="accent">2026-04-17</span>
-        <h1>N Clock: Pre-Register now!<span class="accent">_</span></h1>
 
-        <div id="pre-register-section" style="text-align: center; margin: 2rem 0;">
-            <a href="https://play.google.com/store/apps/details?id=de.nostream.nclock" class="btn" style="font-size: 1.2rem; padding: 1rem 2rem;">Pre-Register on Google Play</a>
+        <span class="accent">2026-07-20</span>
+        <h1>N Clock is Out Now!<span class="accent">_</span></h1>
+
+        <div id="download-section" style="text-align: center; margin: 2rem 0;">
+            <a href="https://play.google.com/store/apps/details?id=de.nostream.nclock" class="btn" style="font-size: 1.2rem; padding: 1rem 2rem;">Download on Google Play</a>
         </div>
 
         <section id="content">
@@ -51,7 +63,7 @@
                 </ul>
 
                 <h4 style="color: var(--accent-color); font-size: 0.9rem; text-transform: uppercase; margin-bottom: 1rem;">Status</h4>
-                <p>Pre-registration is now open on the Google Play Store! Sign up today to be among the first to experience N Clock when it launches.</p>
+                <p>N Clock is now available on the Google Play Store! Download it today and start using it right away.</p>
             </div>
         </section>
 
@@ -76,8 +88,8 @@
             document.querySelector('header').style.display = 'none';
             document.querySelector('h1').style.display = 'none';
             document.querySelector('main > span.accent').style.display = 'none'; // The date
-            const preRegSection = document.getElementById('pre-register-section');
-            if (preRegSection) preRegSection.style.display = 'none';
+            const downloadSection = document.getElementById('download-section');
+            if (downloadSection) downloadSection.style.display = 'none';
             document.getElementById('content').style.display = 'none';
             document.querySelector('.footer-copyright').style.display = 'none';
             document.querySelectorAll('.btn').forEach(b => b.parentNode.style.display = 'none'); // Back button (and any other .btn parents)
