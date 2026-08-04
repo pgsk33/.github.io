@@ -1,0 +1,14 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.gesekus.dothub",
+      "sha256_cert_fingerprints": [
+        "FF:62:B9:70:26:13:E3:AF:3C:AC:BA:5C:8E:41:18:D5:0A:1D:79:B3:63:53:B2:2D:15:91:27:C7:3E:99:DC:7B",
+        "E8:31:1A:16:ED:BF:BC:F9:FD:89:72:A6:3D:6E:8A:5A:50:12:7B:60:2B:DE:CA:BF:F4:07:7A:D8:1A:CA:80:7F",
+        "AE:A1:40:06:15:79:D7:74:15:F7:68:71:42:D4:9F:7C:54:C2:64:B7:A1:F6:63:0A:50:AB:31:90:41:CA:A6:38"
+      ]
+    }
+  }
+]

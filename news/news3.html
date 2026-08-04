@@ -5,6 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>N Clock is Out Now! | nostream dev</title>
     <link rel="canonical" href="https://nostream.tech/news/news3.html">
+
+    <!-- Early redirect: anyone loading the normal web page (no ?platform=app) is sent
+         straight to the Play Store. Runs before render so the page never flashes.
+         The in-app banner uses ?platform=app and is therefore exempt. -->
+    <script>
+        (function () {
+            if (new URLSearchParams(window.location.search).get('platform') !== 'app') {
+                window.location.replace('https://play.google.com/store/apps/details?id=de.nostream.nclock&referrer=utm_source%3Ddothub');
+            }
+        })();
+    </script>
+
     <link rel="stylesheet" href="../stylesheet.css">
     <link rel="stylesheet" href="../mobile_view.css">
 </head>
@@ -23,30 +35,24 @@
 
 
     <main>
-      <!-- TEMPORARY: Dot Hub Pro notice, shown 2026-07-20 → 2026-07-23 only.
-           Restore the ORIGINAL card below after July 23. -->
-      <div id="app-news-card" class="app-news-card" style="display: none;">
-        <img src="../images/dot_hub_logo_trans.png" alt="Dot Hub" class="app-preview-image" style="object-fit: contain; object-position: center;">
-        <div class="app-card-content">
-          <h2 style="color: #ff8a00;">Pro Purchases Paused</h2>
-          <h3 style="font-size: 0.85rem; font-weight: 400; color: #cccccc; margin: 0.5rem 0 0 0; line-height: 1.4;">July 20&ndash;23 &middot; backend maintenance</h3>
-        </div>
-      </div>
-      <!-- ORIGINAL:
       <div id="app-news-card" class="app-news-card" style="display: none;">
         <img src="../images/nc_logo_trans.png" alt="N Clock Preview" class="app-preview-image">
         <div class="app-card-content">
-          <h2>N Clock is Out Now!</h2>
+          <span style="display: inline-block; font-size: 0.6rem; letter-spacing: 2px; text-transform: uppercase; color: var(--accent-color); margin-bottom: 0.35rem;">Out Now</span>
+          <div style="display: flex; align-items: center; justify-content: space-between; width: 100%; gap: 0.6rem;">
+            <h2 style="font-size: 1.5rem; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; line-height: 1.1; margin: 0;">N Clock</h2>
+            <span style="flex-shrink: 0; display: inline-flex; align-items: center; gap: 0.4rem; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; color: var(--bg-color); background-color: var(--accent-color); padding: 0.5rem 0.9rem; border-radius: 999px;">Sale &#9656;</span>
+          </div>
+          <p style="font-size: 0.72rem; font-weight: 400; color: #cccccc; line-height: 1.4; margin: 0.9rem 0 0 0;">Built for Nothing. Just not by Nothing.</p>
         </div>
       </div>
-      -->
 
 
         <span class="accent">2026-07-20</span>
         <h1>N Clock is Out Now!<span class="accent">_</span></h1>
 
         <div id="download-section" style="text-align: center; margin: 2rem 0;">
-            <a href="https://play.google.com/store/apps/details?id=de.nostream.nclock" class="btn" style="font-size: 1.2rem; padding: 1rem 2rem;">Download on Google Play</a>
+            <a href="https://play.google.com/store/apps/details?id=de.nostream.nclock&referrer=utm_source%3Ddothub" class="btn" style="font-size: 1.2rem; padding: 1rem 2rem;">Download on Google Play</a>
         </div>
 
         <section id="content">
