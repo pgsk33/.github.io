@@ -28,7 +28,10 @@
     }
 </script>
 
-    <link rel="stylesheet" href="stylesheet.css">
+    <meta name="theme-color" content="#f5f5f0" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)">
+    <link rel="stylesheet" href="nostream_new_n_design.css">
+    <script src="nostream_new_n_design.js"></script>
 </head>
 
 <body>
@@ -40,11 +43,22 @@
             <a href="dot-hub.html">Dot Hub</a>
             <a href="nclock.html">NClock</a>
             <a href="blog.html">Blog</a>
+            <a href="developers.html">Devs</a>
         </nav>
     </header>
 
     <main>
-        <h1>Hello. <br>I'm nostream<span class="accent">_</span></h1>
+        <div class="nnd-hero">
+            <div class="nnd-hero-meta">
+                <span class="nnd-eyebrow">App developer</span>
+                <span class="nnd-sep">/</span>
+                <span class="nnd-eyebrow">3D animator</span>
+                <span class="nnd-sep">/</span>
+                <span class="nnd-eyebrow">Music maker</span>
+            </div>
+            <h1>Hello. <br>I'm nostream<span class="nnd-dot">.</span></h1>
+            <p class="nnd-standfirst">Two Android apps for Nothing phones, built where code meets creativity.</p>
+        </div>
 
         <section id="about">
             <h2>About me</h2>
@@ -56,19 +70,23 @@
             <div class="grid">
                 <div class="card">
                     <h3>Dot Hub</h3>
-                    <p>For Glyph Matrix.</p>
+                    <p class="nnd-eyebrow">For Glyph Matrix.</p>
                     <p>Dot Hub is a collection of Glyph Toys for the Glyph Interface. It utilizes the Glyph Matrix of Nothing Phones, bringing fun little toys directly to the back of your phone.</p>
-                    <a href="dot-hub.html" class="btn">Details ansehen</a>
-                    <a href="https://play.google.com/store/apps/details?id=com.gesekus.dothub" class="btn">Download</a>
+                    <div class="nnd-actions">
+                        <a href="dot-hub.html" class="btn">Details ansehen</a>
+                        <a href="https://play.google.com/store/apps/details?id=com.gesekus.dothub" class="btn btn-secondary">Download</a>
+                    </div>
                 </div>
 
                 <div class="card">
                     <h3>NClock</h3>
-                    <p>Time, reimagined.</p>
+                    <p class="nnd-eyebrow">Time, reimagined.</p>
                     <p>N Clock is a simple clock app. Inspired by the Nothing design language, it provides a clean and highly functional experience in one straightforward dark theme interface.
                     </p>
-                    <a href="nclock.html" class="btn">Details ansehen</a>
-                    <a href="https://play.google.com/store/apps/details?id=de.nostream.nclock" class="btn">Download</a>
+                    <div class="nnd-actions">
+                        <a href="nclock.html" class="btn">Details ansehen</a>
+                        <a href="https://play.google.com/store/apps/details?id=de.nostream.nclock" class="btn btn-secondary">Download</a>
+                    </div>
                 </div>
             </div>
         </section>
